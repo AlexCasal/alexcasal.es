@@ -1,0 +1,102 @@
+---
+interface Action {
+  href: string;
+  label: string;
+  detail?: string;
+}
+
+interface MetaItem {
+  label: string;
+  value: string;
+}
+
+interface RailItem {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro: string;
+  note: string;
+  actions?: Action[];
+  meta?: MetaItem[];
+  rail?: RailItem[];
+}
+
+const {
+  eyebrow = "Homepage",
+  title,
+  intro,
+  note,
+  actions = [],
+  meta = [],
+  rail = [],
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20">
+  <div aria-hidden="true" class="absolute right-[4%] top-4 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"></div>
+
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.7fr)] lg:items-end">
+    <div>
+      <div class="flex items-center gap-4">
+        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]">
+          {eyebrow}
+        </p>
+        <span class="h-px flex-1 bg-[var(--line)]"></span>
+      </div>
+
+      <h1 class="mt-6 max-w-[10.5ch] font-display text-[clamp(4rem,11vw,9.2rem)] leading-[0.86] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft">
+        {title}
+      </h1>
+
+      <div class="mt-8 grid gap-6 lg:max-w-4xl lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.6fr)] lg:items-start">
+        <p class="max-w-2xl text-lg leading-8 text-[var(--muted)] sm:text-[1.32rem] sm:leading-9">
+          {intro}
+        </p>
+      </div>
+
+      {actions.length > 0 && (
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {actions.map((action, index) => (
+            <a
+              href={action.href}
+              class:list={[
+                "group inline-flex items-center justify-between gap-4 rounded-full border px-5 py-3 text-sm transition duration-300 hover:-translate-y-0.5",
+                index === 0
+                  ? "border-[var(--accent)] bg-[var(--accent)] text-[#0b0d10] hover:bg-[var(--accent-strong)]"
+                  : "border-[var(--line)] bg-[var(--surface-soft)] text-[var(--ink)] hover:border-[var(--line-strong)] hover:bg-[var(--surface)]",
+              ]}
+            >
+              <span>{action.label}</span>
+              <span class:list={[
+                "font-mono text-[0.68rem] uppercase tracking-[0.24em]",
+                index === 0 ? "text-[#0b0d10]/65" : "text-[var(--soft)] group-hover:text-[var(--accent)]",
+              ]}>
+                {action.detail ?? "Open"}
+              </span>
+            </a>
+          ))}
+        </div>
+      )}
+
+      {meta.length > 0 && (
+        <dl class="mt-12 grid gap-4 border-t border-[var(--line)] pt-6 sm:grid-cols-3">
+          {meta.map((item) => (
+            <div>
+              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+                {item.label}
+              </dt>
+              <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
+                {item.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </div>
+
+  </div>
+</section>

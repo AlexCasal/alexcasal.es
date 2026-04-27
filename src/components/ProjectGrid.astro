@@ -1,0 +1,227 @@
+---
+interface Project {
+  name: string;
+  title: string;
+  kind: string;
+  summary: string;
+  githubUrl: string;
+  liveUrl?: string | null;
+  language?: string | null;
+  updatedLabel: string;
+  status: string;
+}
+
+interface Props {
+  projects: Project[];
+  profileUrl: string;
+}
+
+const { projects, profileUrl } = Astro.props;
+
+const [lead, ...rest] = projects;
+const secondary = rest.slice(0, 2);
+const archive = rest.slice(2);
+---
+
+<section aria-labelledby="project-grid-title" class="mt-10">
+  <h2 id="project-grid-title" class="sr-only">Project index</h2>
+
+  {lead && (
+    <div class="grid gap-4 lg:grid-cols-12 lg:auto-rows-[minmax(14rem,auto)]">
+      <article class="group relative overflow-hidden rounded-[2.4rem] border border-[var(--line)] bg-[linear-gradient(140deg,rgba(216,255,86,0.14),rgba(121,211,255,0.06)_40%,rgba(255,255,255,0.03))] p-7 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-9 lg:col-span-7 lg:row-span-2">
+        <div aria-hidden="true" class="absolute right-[-3rem] top-[-3rem] h-44 w-44 rounded-full border border-[rgba(11,13,16,0.18)] opacity-50"></div>
+
+        <div class="flex items-center justify-between gap-4 text-[#0b0d10]">
+          <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[#0b0d10]/60">
+            Lead project
+          </span>
+          <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[#0b0d10]/60">
+            {lead.kind}
+          </span>
+        </div>
+
+        <div class="mt-14 max-w-2xl lg:mt-24">
+          <h3 class="font-display text-[clamp(3rem,6vw,6rem)] leading-[0.9] tracking-[-0.08em] text-[#0b0d10]">
+            {lead.title}
+          </h3>
+          <p class="mt-5 max-w-xl text-base leading-7 text-[#0b0d10]/72 sm:text-lg sm:leading-8">
+            {lead.summary}
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-[rgba(11,13,16,0.14)] pt-5">
+          <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[#0b0d10]/60">
+            {lead.status}
+          </span>
+          {lead.language && (
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[#0b0d10]/60">
+              {lead.language}
+            </span>
+          )}
+          <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[#0b0d10]/60">
+            {lead.updatedLabel}
+          </span>
+        </div>
+
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a
+            href={lead.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center gap-3 rounded-full bg-[#0b0d10] px-5 py-3 text-sm text-[var(--accent)] transition duration-300 hover:-translate-y-0.5 hover:bg-black"
+          >
+            View on GitHub
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--accent)]/70">repo</span>
+          </a>
+          {lead.liveUrl && (
+            <a
+              href={lead.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-3 rounded-full border border-[rgba(11,13,16,0.16)] px-5 py-3 text-sm text-[#0b0d10] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(11,13,16,0.28)] hover:bg-white/20"
+            >
+              Open live site
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[#0b0d10]/60">live</span>
+            </a>
+          )}
+        </div>
+      </article>
+
+      {secondary.map((project) => (
+        <article class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8 lg:col-span-5">
+          <div class="flex items-center justify-between gap-4">
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              {project.status}
+            </span>
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              {project.updatedLabel}
+            </span>
+          </div>
+
+          <h3 class="mt-10 max-w-[9ch] font-display text-[clamp(2.2rem,4vw,3.8rem)] leading-[0.93] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
+            {project.title}
+          </h3>
+          <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+            {project.summary}
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-[var(--line)] pt-4">
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+              {project.kind}
+            </span>
+            {project.language && (
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                {project.language}
+              </span>
+            )}
+          </div>
+
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
+            >
+              GitHub
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">repo</span>
+            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
+              >
+                Live
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">site</span>
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+
+      {archive.length > 0 && (
+        <div class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8 lg:col-span-12">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--accent-cool)]">
+                Other repositories
+              </p>
+              <p class="mt-2 max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+                Smaller, older, or more contextual pieces that still belong to the wider body of work.
+              </p>
+            </div>
+
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
+            >
+              All repositories
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">GitHub</span>
+            </a>
+          </div>
+
+          <div class="mt-8 border-t border-[var(--line-strong)]">
+            {archive.map((project) => (
+              <article class="grid gap-4 border-b border-[var(--line)] py-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)_auto] lg:items-start lg:gap-8">
+                <div>
+                  <h3 class="font-display text-3xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-4xl">
+                    {project.title}
+                  </h3>
+                  <p class="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+                    {project.kind}
+                  </p>
+                </div>
+
+                <div>
+                  <p class="text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+                    {project.summary}
+                  </p>
+                  <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                    <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                      {project.status}
+                    </span>
+                    {project.language && (
+                      <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                        {project.language}
+                      </span>
+                    )}
+                    <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                      {project.updatedLabel}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-3 lg:items-end">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
+                  >
+                    GitHub
+                    <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">repo</span>
+                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
+                    >
+                      Live
+                      <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">site</span>
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+</section>

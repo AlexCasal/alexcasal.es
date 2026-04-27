@@ -1,0 +1,128 @@
+---
+import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Alex Casal | Personal Internet",
+  description = "A personal website that mixes digital garden, creative studio, and experimental portfolio.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0b0d10" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@400;500;700;800&display=swap"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-[var(--page)] text-[var(--ink)] antialiased">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[var(--ink)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--page)]"
+    >
+      Skip to content
+    </a>
+
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(216,255,86,0.16),transparent_26%),radial-gradient(circle_at_80%_12%,rgba(121,211,255,0.12),transparent_18%),radial-gradient(circle_at_75%_82%,rgba(216,255,86,0.1),transparent_24%),linear-gradient(180deg,#0b0d10_0%,#090b0d_100%)]"></div>
+      <div class="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,var(--grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid)_1px,transparent_1px)] [background-size:4rem_4rem]"></div>
+      <div class="absolute inset-x-0 top-0 h-[28rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent)]"></div>
+      <div class="absolute left-[10%] top-[22%] h-56 w-56 rounded-full border border-[var(--line)] opacity-30"></div>
+      <div class="absolute bottom-[10%] right-[8%] h-72 w-72 rounded-full border border-[var(--line)] opacity-20"></div>
+    </div>
+
+    <div class="mx-auto flex min-h-screen w-full max-w-[110rem] flex-col px-4 sm:px-6 xl:px-8">
+      <Navigation />
+      <main id="content" class="flex-1 pb-20 pt-8 sm:pb-24 sm:pt-10 lg:pb-28">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+    --page: #0b0d10;
+    --surface: rgba(14, 17, 21, 0.78);
+    --surface-strong: rgba(18, 21, 26, 0.96);
+    --surface-soft: rgba(255, 255, 255, 0.03);
+    --ink: #f2f5ee;
+    --muted: rgba(242, 245, 238, 0.7);
+    --soft: rgba(242, 245, 238, 0.5);
+    --line: rgba(242, 245, 238, 0.12);
+    --line-strong: rgba(242, 245, 238, 0.22);
+    --grid: rgba(242, 245, 238, 0.08);
+    --accent: #d8ff56;
+    --accent-strong: #efff9a;
+    --accent-soft: rgba(216, 255, 86, 0.14);
+    --accent-cool: #79d3ff;
+    --font-body: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-display: "Syne", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  }
+
+  html {
+    background: var(--page);
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 0 32px rgba(216, 255, 86, 0.12);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #0b0d10;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ComingSoon from "../components/ComingSoon.astro";
+
+const bullets = [
+  "Interactive prototypes with lightweight motion and minimal JavaScript, focused on rhythm over effects.",
+  "Short experiments that test navigation patterns, typography behavior, and non-standard page structures.",
+  "A rotating set of unfinished fragments, published in small updates instead of one big drop.",
+];
+
+const routes = [
+  {
+    href: "/projects",
+    note: "Available now",
+    title: "See the resolved work in Projects.",
+  },
+  {
+    href: "/notes",
+    note: "Also coming soon",
+    title: "Follow the writing side in Notes.",
+  },
+];
+---
+
+<BaseLayout
+  title="Alex Casal | Lab"
+  description="Lab page for experiments, prototypes, and unfinished interaction studies."
+>
+  <ComingSoon
+    eyebrow="Lab / 04"
+    title="The lab opens soon."
+    intro="This section is reserved for experiments, unfinished prototypes, and pieces that are still in motion."
+    note="Instead of shipping everything at once, I am preparing the lab as a stream of smaller releases that can stay rough without becoming messy."
+    statusLabel="Build state"
+    statusValue="Structure is defined and first experiments are being prepared."
+    launchLabel="Launch window"
+    launchValue="First public drop planned for July 2026."
+    cadenceLabel="Publishing cadence"
+    cadenceValue="Short iterative releases over the next few months."
+    bullets={bullets}
+    routes={routes}
+  />
+</BaseLayout>
