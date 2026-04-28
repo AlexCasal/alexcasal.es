@@ -28,7 +28,7 @@ const archive = rest.slice(2);
 
   {lead && (
     <div class="grid gap-4 lg:grid-cols-12 lg:auto-rows-[minmax(14rem,auto)]">
-      <article class="group relative overflow-hidden rounded-[2.4rem] border border-[var(--line)] bg-[linear-gradient(140deg,rgba(216,255,86,0.14),rgba(121,211,255,0.06)_40%,rgba(255,255,255,0.03))] p-7 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-9 lg:col-span-7 lg:row-span-2">
+      <article id={lead.name} class="group relative overflow-hidden rounded-[2.4rem] border border-[var(--line)] bg-[linear-gradient(140deg,rgba(216,255,86,0.14),rgba(121,211,255,0.06)_40%,rgba(255,255,255,0.03))] p-7 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-9 lg:col-span-7 lg:row-span-2">
         <div aria-hidden="true" class="absolute right-[-3rem] top-[-3rem] h-44 w-44 rounded-full border border-[rgba(11,13,16,0.18)] opacity-50"></div>
 
         <div class="flex items-center justify-between gap-4 text-[#0b0d10]">
@@ -88,7 +88,7 @@ const archive = rest.slice(2);
       </article>
 
       {secondary.map((project) => (
-        <article class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8 lg:col-span-5">
+        <article id={project.name} class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8 lg:col-span-5">
           <div class="flex items-center justify-between gap-4">
             <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
               {project.status}

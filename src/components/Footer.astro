@@ -1,0 +1,75 @@
+---
+const year = new Date().getFullYear();
+
+const primaryLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/lab", label: "Lab" },
+  { href: "/notes", label: "Notes" },
+  { href: "/contact", label: "Contact" },
+];
+
+const socialLinks = [
+  { href: "mailto:alexcasaldaw@gmail.com", label: "Email" },
+  { href: "https://github.com/alexcasal", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/alexcasaldaw", label: "LinkedIn" },
+];
+---
+
+<footer class="border-t border-[var(--line-strong)] pb-10 pt-10 sm:pb-12 sm:pt-12">
+  <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.8fr)]">
+    <div>
+      <p class="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-[var(--accent)]">
+        alex-casal
+      </p>
+      <p class="mt-4 max-w-md text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+        Building websites, systems, and experiments with intention.
+      </p>
+    </div>
+
+    <div>
+      <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+        Navigate
+      </p>
+      <nav aria-label="Footer">
+        <ul class="mt-4 grid grid-cols-2 gap-2 sm:gap-3">
+          {primaryLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-[var(--muted)] transition duration-300 hover:text-[var(--accent)]"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+        Contact
+      </p>
+      <ul class="mt-4 space-y-2">
+        {socialLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+              class="text-sm text-[var(--muted)] transition duration-300 hover:text-[var(--accent)]"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-10 flex flex-col gap-3 border-t border-[var(--line)] pt-6 text-xs text-[var(--soft)] sm:flex-row sm:items-center sm:justify-between">
+    <p>© {year} Alex Casal. All rights reserved.</p>
+  </div>
+</footer>

@@ -2,60 +2,14 @@
 import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const manifestoItems = [
-  {
-    title: "A garden, not an archive.",
-    text: "Notes, references, loose sketches, and finished work are allowed to sit together. The site should reveal how ideas connect, not just how they conclude.",
-    tag: "thinking in public",
-  },
-  {
-    title: "A studio, not a template.",
-    text: "Projects need framing, language, and point of view. The interface should communicate taste and intent before it starts listing tools or achievements.",
-    tag: "edited",
-  },
-  {
-    title: "A lab, not a leftovers bin.",
-    text: "Experiments deserve first-class space. Half-finished prototypes, interaction studies, and strange side paths are part of the practice, not a separate category of less serious work.",
-    tag: "still moving",
-  },
-];
-
-const featuredProjects = [
-  {
-    title: "Publishing System",
-    kind: "System design",
-    summary:
-      "A modular publishing setup for essays, notes, and references that keeps the output calm while letting the structure stay flexible underneath.",
-    tags: ["Astro", "Content architecture", "Performance"],
-    href: "/projects",
-  },
-  {
-    title: "Archive Interface",
-    kind: "Interface study",
-    summary:
-      "A navigation experiment for collections, fragments, and linked material that moves away from the default grid-of-cards approach.",
-    tags: ["Information design", "Navigation"],
-    href: "/projects",
-  },
-  {
-    title: "Motion Fragments",
-    kind: "Prototype series",
-    summary:
-      "Small interaction pieces focused on rhythm, typography, and tactile movement with very little client-side JavaScript.",
-    tags: ["Motion", "Minimal JS"],
-    href: "/projects",
-  },
-];
 ---
 
 <BaseLayout
   title="Alex Casal"
 >
   <Hero
-    eyebrow="Index / 01"
     title="Building things in public"
     intro="This homepage is a live page for projects, notes, prototypes, and some new things that If have time and I get bored I will implement. It is meant to feel closer to a working surface than a polished CV."
-    note="The goal is clarity without flattening the work into a standard portfolio pattern. Finished pieces and unfinished thinking are both part of the signal."
     actions={[
       { href: "/projects", label: "My projects", detail: "Details" },
       { href: "/lab", label: "The lab", detail: "Work in progress" },
@@ -66,15 +20,12 @@ const featuredProjects = [
   <section aria-labelledby="featured-projects" class="mt-20 lg:mt-28">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
       <div class="lg:sticky lg:top-32 lg:self-start">
-        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]">
-          Featured projects
+        <p class="font-mono text-[0.9rem] uppercase tracking-[0.3em] text-[var(--accent)]">
+          some projects
         </p>
         <h2 id="featured-projects" class="mt-4 max-w-[8ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          Selected work with more presence than a grid.
+          Here you can find some things 'finished' :)
         </h2>
-        <p class="mt-6 max-w-md text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-          Instead of a wall of cards, the homepage treats projects like entries in a front-page lineup. Each one should feel like a route into a fuller case study.
-        </p>
         <a
           href="/projects"
           class="mt-8 inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
@@ -85,46 +36,92 @@ const featuredProjects = [
       </div>
 
       <div class="border-t border-[var(--line-strong)]">
-        {featuredProjects.map((project, index) => (
-          <a
-            href={project.href}
-            class:list={[
-              "group block border-b border-[var(--line)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:px-4",
-              index === 0 && "rounded-[2rem] bg-[linear-gradient(135deg,rgba(216,255,86,0.1),transparent_45%)] lg:px-8",
-            ]}
-          >
-            <div class="flex items-center justify-between gap-5">
-              <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-                {project.kind}
-              </span>
-            </div>
-
-            <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
-              <h3 class:list={[
-                "font-display leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]",
-                index === 0 ? "text-[clamp(2.9rem,6vw,5.8rem)]" : "text-[clamp(2.2rem,4.4vw,4rem)]",
-              ]}>
-                {project.title}
-              </h3>
-
-              <div>
-                <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                  {project.summary}
-                </p>
-                <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
-                  {project.tags.map((tag) => (
-                    <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+        <a
+          href="/projects#alexcasal-es"
+          class="group block rounded-[2rem] border-b border-[var(--line)] bg-[linear-gradient(135deg,rgba(216,255,86,0.1),transparent_45%)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:px-8"
+        >
+          <div class="flex items-center justify-between gap-5">
+            <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              01
+            </span>
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              Personal website
+            </span>
+          </div>
+          <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
+            <h3 class="font-display text-[clamp(2.9rem,6vw,5.8rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
+              alexcasal.es
+            </h3>
+            <div>
+              <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+                The site itself: an Astro-based personal internet that tries to behave more like a studio surface than a standard portfolio.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Astro</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Ongoing</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Apr 2026</span>
               </div>
             </div>
-          </a>
-        ))}
+          </div>
+        </a>
+
+        <a
+          href="/projects#zara-challenge"
+          class="group block border-b border-[var(--line)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:px-4"
+        >
+          <div class="flex items-center justify-between gap-5">
+            <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              02
+            </span>
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              Frontend challenge
+            </span>
+          </div>
+          <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
+            <h3 class="font-display text-[clamp(2.2rem,4.4vw,4rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
+              Zara Challenge
+            </h3>
+            <div>
+              <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+                A retail interface exercise focused on structure, browsing clarity, and translating a familiar product system into a sharper front-end build.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">JavaScript</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Shipped</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Mar 2026</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="/projects#hackudc-2026"
+          class="group block border-b border-[var(--line)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:px-4"
+        >
+          <div class="flex items-center justify-between gap-5">
+            <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              03
+            </span>
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              Event website
+            </span>
+          </div>
+          <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
+            <h3 class="font-display text-[clamp(2.2rem,4.4vw,4rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
+              HackUDC 2026
+            </h3>
+            <div>
+              <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+                The official site for HackUDC 2026. More public-facing, more information-heavy, and built with a stronger collaboration constraint.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Astro</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Collaboration</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Jan 2026</span>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -134,8 +131,8 @@ const featuredProjects = [
   <section class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-start">
       <div>
-        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]">
-          Contact
+        <p class="font-mono text-[0.9rem] uppercase tracking-[0.3em] text-[var(--accent)]">
+          contact?
         </p>
         <h2 class="mt-4 max-w-[11ch] font-display text-4xl leading-[0.94] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
           Need a site, system, or experiment with a point of view?
@@ -154,7 +151,7 @@ const featuredProjects = [
           <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[#0b0d10]/65">/contact</span>
         </a>
         <p class="mt-6 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
-          Response cadence / human
+          Response cadence / human 
         </p>
       </div>
     </div>
