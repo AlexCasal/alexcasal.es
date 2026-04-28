@@ -1,39 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const principles = [
-  {
-    title: "Systems before decoration",
-    text: "I like interfaces that are carried by clear structure. The visual layer matters, but it works best when the underlying system is calm, flexible, and easy to extend.",
-  },
-  {
-    title: "Editorial web thinking",
-    text: "I am drawn to websites that read well, move with intention, and feel authored. Typography, pacing, hierarchy, and voice are part of the product, not just the finish.",
-  },
-  {
-    title: "Experiment without noise",
-    text: "I do not need maximal interaction to make something feel alive. A site can feel contemporary through rhythm, contrast, motion restraint, and better decisions.",
-  },
-];
-
-const interests = [
-  {
-    title: "Publishing systems",
-    tag: "structure",
-    text: "Designing ways to write, organise, and publish work that can grow over time without becoming messy or over-engineered.",
-  },
-  {
-    title: "Personal web formats",
-    tag: "format",
-    text: "Treating the portfolio, digital garden, archive, and studio site as things that can overlap instead of living in separate boxes.",
-  },
-  {
-    title: "Minimal interaction",
-    tag: "interface",
-    text: "Using motion and feedback with restraint, so the page feels sharp and current without turning into a small app for no reason.",
-  },
-];
-
 const routes = [
   {
     title: "Projects",
@@ -42,10 +9,10 @@ const routes = [
     note: "Built work",
   },
   {
-    title: "Notes",
-    href: "/notes",
-    text: "Writing, fragments, references, and ideas that are still being clarified through language.",
-    note: "Digital garden",
+    title: "Experiences",
+    href: "/experiences",
+    text: "Short post-style reflections about what I am building, learning, and seeing while working in tech.",
+    note: "LinkedIn-style posts",
   },
   {
     title: "Contact",
@@ -56,65 +23,93 @@ const routes = [
 ];
 ---
 
-<BaseLayout
-  title="Alex Casal | About"
->
-  <section class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20">
-    <div aria-hidden="true" class="absolute left-[8%] top-10 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"></div>
-
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-end">
+<BaseLayout title="Alex Casal | About">
+  <section
+    class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute left-[8%] top-10 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"
+    >
+    </div>
+    <div
+      class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-end"
+    >
       <div>
         <div class="flex items-center gap-4">
-          <p class="font-mono text-[0.8rem] uppercase tracking-[0.3em] text-[var(--accent)]">
+          <p
+            class="font-mono text-[0.8rem] uppercase tracking-[0.3em] text-[var(--accent)]"
+          >
             About / 02
           </p>
           <span class="h-px flex-1 bg-[var(--line)]"></span>
         </div>
-
-        <h1 class="mt-6 max-w-[10ch] font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft">
-          About, but not in the usual sense.
+        <h1
+          class="mt-6 max-w-[10ch] font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft"
+        >
+        An about page. Yes, apparently I needed one.
         </h1>
-
-        <div class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9">
+        <div
+          class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9"
+        >
           <p>
-            I build digital work with an editorial bias: interfaces that read clearly, systems that stay flexible, and websites that can carry both polish and process.
+            I’m Alex, a frontend developer from Spain, now building a new
+            chapter in Berlin. I care about making things that feel clear,
+            useful, and well considered.
           </p>
+
           <p>
-            This page is less biography and more orientation. It is here to explain the way I think about the web, the kinds of structures I enjoy building, and why this site is designed more like a working surface than a standard portfolio.
+            This is less a biography than a small orientation. Part portfolio,
+            part working surface, a place that reflects how I think, what I’m
+            exploring, and how I approach the web.
           </p>
         </div>
       </div>
-
       <aside class="lg:pb-2">
-        <div class="rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-6 sm:p-8">
-          <p class="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-[var(--accent-cool)]">
+        <div
+          class="rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-6 sm:p-8"
+        >
+          <p
+            class="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-[var(--accent-cool)]"
+          >
             Snapshot
           </p>
-      
           <dl class="mt-6 space-y-5">
-            <div class="border-t border-[var(--line)] pt-5 first:border-t-0 first:pt-0">
-              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+            <div
+              class="border-t border-[var(--line)] pt-5 first:border-t-0 first:pt-0"
+            >
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]"
+              >
                 Base
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Originally from Spain, now building a new chapter in Berlin while growing as a web developer.
+                Originally from Spain, currently relocating to Berlin while
+                growing through independent projects and new opportunities.
               </dd>
             </div>
-      
             <div class="border-t border-[var(--line)] pt-5">
-              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]"
+              >
                 Curiosity
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Recently arrived in Berlin, seeking opportunities where I can contribute what I know, grow through collaboration, and help build thoughtful digital products.              </dd>
+                Interested in the space where design, development, and
+                experimentation meet — especially when ideas can turn into
+                practical products.
+              </dd>
             </div>
-      
             <div class="border-t border-[var(--line)] pt-5">
-              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]"
+              >
                 Open Source
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Open-source enthusiast, learning through building, studying other people’s code, and contributing where I can.
+                Learning through open-source, studying how others build, and
+                increasingly using AI to automate tasks and make development
+                faster.
               </dd>
             </div>
           </dl>
@@ -122,122 +117,64 @@ const routes = [
       </aside>
     </div>
   </section>
-
-  <section aria-labelledby="how-i-work" class="mt-16 lg:mt-20">
-    <div class="flex flex-col gap-6 border-t border-[var(--line-strong)] pt-10 lg:flex-row lg:items-end lg:justify-between lg:pt-12">
+  <section aria-labelledby="a-bit-more" class="mt-20 pt-12 lg:mt-10 lg:pt-10">
+    <div
+      class="grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-14"
+    >
       <div>
-        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]">
-          Practice
+        <p
+          class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]"
+        >
+          A bit more
         </p>
-        <h2 id="how-i-work" class="mt-4 max-w-[10ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          How I like to work.
+        <h2
+          id="a-bit-more"
+          class="mt-4 max-w-[10ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl"
+        >
+          Short version about me.
         </h2>
       </div>
-
-      <p class="max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8 lg:text-right">
-        The work usually sits somewhere between interface design, front-end structure, and the question of how a website should feel when someone actually spends time with it.
+      <div
+        class="space-y-5 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8"
+      >
+      <p>
+        I came into development through self-directed learning and building things to understand how they work. That process still shapes how I approach projects.
       </p>
-    </div>
-
-    <div class="mt-8 grid gap-4 lg:grid-cols-3">
-      {principles.map((item, index) => (
-        <article class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8">
-          <div class="flex items-center justify-between gap-4">
-            <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <span class="h-px w-10 bg-[var(--line)]"></span>
-          </div>
-
-          <h3 class="mt-10 max-w-[11ch] font-display text-[clamp(2rem,3.2vw,3.2rem)] leading-[0.94] tracking-[-0.07em] text-[var(--ink)]">
-            {item.title}
-          </h3>
-          <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-            {item.text}
-          </p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section aria-labelledby="what-this-site-is" class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16">
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-14">
-      <div>
-        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]">
-          Site logic
-        </p>
-        <h2 id="what-this-site-is" class="mt-4 max-w-[9ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          This website is part of the work.
-        </h2>
-      </div>
-
-      <div class="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
-        <blockquote class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface-soft)] p-6 font-display text-2xl leading-[1.05] tracking-[-0.05em] text-[var(--ink)] sm:p-8 sm:text-3xl">
-          A personal site can be an index, a sketchbook, and a studio front page at the same time.
-        </blockquote>
-
-        <div class="space-y-5 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-          <p>
-            I am less interested in a site that simply lists achievements and more interested in one that makes the shape of a practice legible. That means leaving room for notes, unfinished ideas, experiments, and the connective tissue between polished outputs.
-          </p>
-          <p>
-            The result should still feel disciplined. I want the pages to be fast, readable, and visually deliberate, even when the content itself is exploratory.
-          </p>
-        </div>
+      
+      <p>
+        I’m comfortable working with AI as part of that process, especially to automate repetitive tasks, speed up workflows, and prototype ideas faster. Used well, it makes building more efficient and opens room for more interesting work.
+      </p>
+      
+      <p>
+        Experiences like HackUDC reinforced my interest in collaborative problem solving, and I’m looking for opportunities where I can keep growing while contributing to thoughtful digital products.
+      </p>
       </div>
     </div>
   </section>
-
-  <section aria-labelledby="current-interests" class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16">
-    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-      <div>
-        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]">
-          Current interests
-        </p>
-        <h2 id="current-interests" class="mt-4 max-w-[11ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          The problems I keep returning to.
-        </h2>
-      </div>
-    </div>
-
-    <div class="mt-8 border-t border-[var(--line-strong)]">
-      {interests.map((item, index) => (
-        <article class="grid gap-5 border-b border-[var(--line)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:grid-cols-[4.5rem_minmax(0,0.9fr)_minmax(0,1.1fr)_auto] lg:items-start lg:gap-8">
-          <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <h3 class="font-display text-[clamp(1.9rem,3vw,3.2rem)] leading-[0.95] tracking-[-0.06em] text-[var(--ink)]">
-            {item.title}
-          </h3>
-          <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-            {item.text}
-          </p>
-          <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] lg:pt-2">
-            {item.tag}
-          </span>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <section class="mt-20 lg:mt-28">
     <div class="grid gap-4 lg:grid-cols-3">
-      {routes.map((route) => (
-        <a
-          href={route.href}
-          class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
-        >
-          <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
-            {route.note}
-          </p>
-          <h3 class="mt-8 font-display text-4xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-5xl">
-            {route.title}
-          </h3>
-          <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-            {route.text}
-          </p>
-        </a>
-      ))}
+      {
+        routes.map((route) => (
+          <a
+            href={route.href}
+            class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
+          >
+            {" "}
+            <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              {" "}
+              {route.note}{" "}
+            </p>{" "}
+            <h3 class="mt-8 font-display text-4xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-5xl">
+              {" "}
+              {route.title}{" "}
+            </h3>{" "}
+            <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+              {" "}
+              {route.text}{" "}
+            </p>{" "}
+          </a>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>
