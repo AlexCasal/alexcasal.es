@@ -4,41 +4,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const contactChannels = [
   {
     title: "Email",
-    value: "hello@alexcasal.com",
-    href: "mailto:hello@alexcasal.com",
+    href: "mailto:alexcasaldaw@gmail.com",
     note: "Best for collaborations and project briefs",
   },
   {
     title: "LinkedIn",
     value: "alex-casal",
-    href: "https://www.linkedin.com",
+    href: "https://www.linkedin.com/in/alexcasaldaw/",
     note: "For professional context and intros",
   },
   {
     title: "GitHub",
     value: "alexcasal",
-    href: "https://github.com",
+    href: "https://github.com/AlexCasal",
     note: "Code, experiments, and open work",
   },
 ];
 
-const collaborationTypes = [
-  {
-    title: "Websites with stronger editorial direction",
-    text: "Personal brands, studio sites, and product pages that need more clarity, rhythm, and point of view than a standard template.",
-    tag: "design + build",
-  },
-  {
-    title: "Frontend systems and reusable structures",
-    text: "Design systems, component architectures, and page frameworks that keep consistency without slowing down iteration.",
-    tag: "systems",
-  },
-  {
-    title: "Experiments and interface studies",
-    text: "Prototype work focused on motion restraint, typography, and interaction patterns that feel current without being noisy.",
-    tag: "lab work",
-  },
-];
 ---
 
 <BaseLayout
@@ -71,11 +53,10 @@ const collaborationTypes = [
         </div>
 
         <a
-          href="mailto:hello@alexcasal.com?subject=New%20project%20inquiry"
+          href="mailto:alexcasaldaw@gmail.com?subject=New%20project%20inquiry"
           class="mt-10 inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-5 py-3 text-sm text-[#0b0d10] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
         >
           Start with email
-          <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[#0b0d10]/65">hello@alexcasal.com</span>
         </a>
       </div>
 
@@ -152,37 +133,5 @@ const collaborationTypes = [
     </div>
   </section>
 
-  <section aria-labelledby="collaboration" class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16">
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-14">
-      <div>
-        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]">
-          Collaboration
-        </p>
-        <h2 id="collaboration" class="mt-4 max-w-[11ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          Projects that are a good fit.
-        </h2>
-      </div>
-
-      <div class="border-t border-[var(--line-strong)]">
-        {collaborationTypes.map((item, index) => (
-          <article class="grid gap-5 border-b border-[var(--line)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:grid-cols-[4.5rem_minmax(0,1fr)_auto] lg:items-start lg:gap-8">
-            <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <div>
-              <h3 class="font-display text-[clamp(1.8rem,2.9vw,3rem)] leading-[0.95] tracking-[-0.06em] text-[var(--ink)]">
-                {item.title}
-              </h3>
-              <p class="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                {item.text}
-              </p>
-            </div>
-            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] lg:pt-2">
-              {item.tag}
-            </span>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  
 </BaseLayout>

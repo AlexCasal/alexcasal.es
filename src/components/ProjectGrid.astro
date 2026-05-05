@@ -17,17 +17,23 @@ interface Props {
 }
 
 const { projects, profileUrl } = Astro.props;
-
 ---
 
 <section aria-labelledby="project-grid-title" class="mt-12 lg:mt-16">
-  <div class="flex flex-col gap-5 border-t border-[var(--line-strong)] pt-8 sm:flex-row sm:items-end sm:justify-between">
+  <div
+    class="flex flex-col gap-5 border-t border-[var(--line-strong)] pt-8 sm:flex-row sm:items-end sm:justify-between"
+  >
     <div>
-      <p class="font-mono text-[0.72rem] uppercase tracking-[0.28em] text-[var(--accent-cool)]">
+      <p
+        class="font-mono text-[0.72rem] uppercase tracking-[0.28em] text-[var(--accent-cool)]"
+      >
         Project list
       </p>
-      <h2 id="project-grid-title" class="mt-3 font-display text-[clamp(2.2rem,4.4vw,4rem)] leading-[0.94] tracking-[-0.07em] text-[var(--ink)]">
-        'Finished' proyects but I will take a look to any commit
+      <h2
+        id="project-grid-title"
+        class="mt-3 font-display text-[clamp(2.2rem,4.4vw,4rem)] leading-[0.94] tracking-[-0.07em] text-[var(--ink)]"
+      >
+        “Finished” projects — more or less.
       </h2>
     </div>
     <a
@@ -37,76 +43,85 @@ const { projects, profileUrl } = Astro.props;
       class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
     >
       View all repositories
-      <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">GitHub</span>
+      <span
+        class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]"
+        >GitHub</span
+      >
     </a>
   </div>
 
   <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-    {projects.map((project, index) => (
-      <article
-        id={project.name}
-        class:list={[
-          "group flex h-full flex-col rounded-[2rem] border border-[var(--line)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8",
-          index === 0
-            ? "bg-[linear-gradient(150deg,rgba(216,255,86,0.11),rgba(121,211,255,0.06)_42%,rgba(255,255,255,0.02))] md:col-span-2 xl:col-span-2"
-            : "bg-[var(--surface)]",
-        ]}
-      >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--accent)]">
-              {project.status}
-            </p>
-            <p class="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
-              {project.kind}
-            </p>
-          </div>
-          <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-            {project.updatedLabel}
-          </span>
-        </div>
-
-        <h3 class="mt-10 font-display text-[clamp(2rem,3.8vw,3.4rem)] leading-[0.93] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
-          {project.title}
-        </h3>
-        <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-          {project.summary}
-        </p>
-
-        <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2 border-t border-[var(--line)] pt-4">
-          {project.language && (
-            <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
-              {project.language}
+    {
+      projects.map((project, index) => (
+        <article
+          id={project.name}
+          class:list={[
+            "group flex h-full flex-col rounded-[2rem] border border-[var(--line)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8",
+            index === 0
+              ? "bg-[linear-gradient(150deg,rgba(216,255,86,0.11),rgba(121,211,255,0.06)_42%,rgba(255,255,255,0.02))] md:col-span-2 xl:col-span-2"
+              : "bg-[var(--surface)]",
+          ]}
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--accent)]">
+                {project.status}
+              </p>
+              <p class="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                {project.kind}
+              </p>
+            </div>
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              {project.updatedLabel}
             </span>
-          )}
-          <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
-            #{String(index + 1).padStart(2, "0")}
-          </span>
-        </div>
+          </div>
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
-          >
-            GitHub
-            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">repo</span>
-          </a>
-          {project.liveUrl && (
+          <h3 class="mt-10 font-display text-[clamp(2rem,3.8vw,3.4rem)] leading-[0.93] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
+            {project.title}
+          </h3>
+          <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+            {project.summary}
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2 border-t border-[var(--line)] pt-4">
+            {project.language && (
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                {project.language}
+              </span>
+            )}
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+              #{String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-3">
             <a
-              href={project.liveUrl}
+              href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
               class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
             >
-              Live site
-              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">open</span>
+              GitHub
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+                repo
+              </span>
             </a>
-          )}
-        </div>
-      </article>
-    ))}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
+              >
+                Live site
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+                  open
+                </span>
+              </a>
+            )}
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
