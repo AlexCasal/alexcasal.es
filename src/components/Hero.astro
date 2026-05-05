@@ -19,17 +19,15 @@ interface Props {
   eyebrow?: string;
   title: string;
   intro: string;
-  note: string;
   actions?: Action[];
   meta?: MetaItem[];
   rail?: RailItem[];
 }
 
 const {
-  eyebrow = "Homepage",
+  eyebrow = "Home  / 01",
   title,
   intro,
-  note,
   actions = [],
   meta = [],
   rail = [],
@@ -42,7 +40,7 @@ const {
   <div class="grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.7fr)] lg:items-end">
     <div>
       <div class="flex items-center gap-4">
-        <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]">
+        <p class="font-mono text-[0.8rem] uppercase tracking-[0.3em] text-[var(--accent)]">
           {eyebrow}
         </p>
         <span class="h-px flex-1 bg-[var(--line)]"></span>
@@ -97,6 +95,4 @@ const {
         </dl>
       )}
     </div>
-
-  </div>
 </section>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ComingSoon from "../components/ComingSoon.astro";
+
+const bullets = [
+  "Short, honest posts about real situations while building products, learning, and collaborating.",
+  "Practical reflections in a LinkedIn-like format: context, what happened, what I learned, and what I would do next.",
+  "A growing archive of experiences from projects, interviews, events, and day-to-day developer life in Berlin.",
+];
+
+const routes = [
+  {
+    href: "/about",
+    note: "Context",
+    title: "Read the broader background in About.",
+  },
+  {
+    href: "/contact",
+    note: "Say hello",
+    title: "Start a conversation while Experiences is in progress.",
+  },
+];
+---
+
+<BaseLayout
+  title="Alex Casal | Experiences"
+  description="Experiences page for post-style reflections about real-life situations, lessons learned, and growth as a developer."
+>
+  <ComingSoon
+    eyebrow="Experiences / 05"
+    title="Experiences are being prepared."
+    intro="This section will collect post-style stories from real situations: what happened, what I learned, and how it changed my approach."
+    note="Think of it as a cleaner, more useful version of LinkedIn posts: short, practical, and focused on lessons instead of noise."
+    statusLabel="Build state"
+    statusValue="Content structure is defined and the first experience posts are in draft."
+    launchLabel="Launch window"
+    launchValue="Initial experience posts planned for August 2026."
+    cadenceLabel="Publishing cadence"
+    cadenceValue="One to two concise posts per month after launch."
+    bullets={bullets}
+    routes={routes}
+  />
+</BaseLayout>
