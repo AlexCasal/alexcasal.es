@@ -1,12 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ComingSoon from "../components/ComingSoon.astro";
-
-const bullets = [
-  "Short, honest posts about real situations while building products, learning, and collaborating.",
-  "Practical reflections in a LinkedIn-like format: context, what happened, what I learned, and what I would do next.",
-  "A growing archive of experiences from projects, interviews, events, and day-to-day developer life in Berlin.",
-];
 
 const routes = [
   {
@@ -26,18 +19,66 @@ const routes = [
   title="Alex Casal | Experiences"
   description="Experiences page for post-style reflections about real-life situations, lessons learned, and growth as a developer."
 >
-  <ComingSoon
-    eyebrow="Experiences / 05"
-    title="Experiences are being prepared."
-    intro="This section will collect post-style stories from real situations: what happened, what I learned, and how it changed my approach."
-    note="Think of it as a cleaner, more useful version of LinkedIn posts: short, practical, and focused on lessons instead of noise."
-    statusLabel="Build state"
-    statusValue="Content structure is defined and the first experience posts are in draft."
-    launchLabel="Launch window"
-    launchValue="Initial experience posts planned for August 2026."
-    cadenceLabel="Publishing cadence"
-    cadenceValue="One to two concise posts per month after launch."
-    bullets={bullets}
-    routes={routes}
-  />
+  <section
+    class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute left-[10%] top-8 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"
+    >
+    </div>
+
+    <div class="grid gap-10 lg:grid-cols-[1.5fr_0.5fr] lg:items-end">
+      <div>
+        <div class="flex items-center gap-4">
+          <p
+            class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]"
+          >
+            Experiences / 05
+          </p>
+          <span class="h-px flex-1 bg-[var(--line)]"></span>
+        </div>
+
+        <h1
+          class="mt-6 font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft"
+        >
+          Experiences are being prepared.
+        </h1>
+
+        <div
+          class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9"
+        >
+          <p>
+            This section will collect post-style stories from real situations:
+            what happened, what I learned, and how it changed my approach.
+          </p>
+          <p>
+            Think of it as a cleaner, more useful version of LinkedIn posts:
+            short, practical, and focused on lessons instead of noise.
+          </p>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="mt-20 lg:mt-28">
+    <div class="grid gap-4 lg:grid-cols-2">
+      {
+        routes.map((route) => (
+          <a
+            href={route.href}
+            class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
+          >
+            <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              {route.note}
+            </p>
+            <h3 class="mt-8 max-w-[11ch] font-display text-4xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-5xl">
+              {route.title}
+            </h3>
+          </a>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
