@@ -1,12 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ComingSoon from "../components/ComingSoon.astro";
-
-const bullets = [
-  "Interactive prototypes with lightweight motion and minimal JavaScript, focused on rhythm over effects.",
-  "Short experiments that test navigation patterns, typography behavior, and non-standard page structures.",
-  "A rotating set of unfinished fragments, published in small updates instead of one big drop.",
-];
 
 const routes = [
   {
@@ -26,18 +19,66 @@ const routes = [
   title="Alex Casal | Lab"
   description="Lab page for experiments, prototypes, and unfinished interaction studies."
 >
-  <ComingSoon
-    eyebrow="Lab / 04"
-    title="The lab opens soon."
-    intro="This section is reserved for experiments, unfinished prototypes, and pieces that are still in motion."
-    note="Instead of shipping everything at once, I am preparing the lab as a stream of smaller releases that can stay rough without becoming messy."
-    statusLabel="Build state"
-    statusValue="Structure is defined and first experiments are being prepared."
-    launchLabel="Launch window"
-    launchValue="First public drop planned for July 2026."
-    cadenceLabel="Publishing cadence"
-    cadenceValue="Short iterative releases over the next few months."
-    bullets={bullets}
-    routes={routes}
-  />
+  <section
+    class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute left-[10%] top-8 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"
+    >
+    </div>
+
+    <div class="grid gap-10 lg:grid-cols-[1.5fr_0.5fr] lg:items-end">
+      <div>
+        <div class="flex items-center gap-4">
+          <p
+            class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]"
+          >
+            Lab / 04
+          </p>
+          <span class="h-px flex-1 bg-[var(--line)]"></span>
+        </div>
+
+        <h1
+          class="mt-6 font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft"
+        >
+          The lab opens soon.
+        </h1>
+
+        <div
+          class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9"
+        >
+          <p>
+            This section is reserved for experiments, unfinished prototypes, and
+            pieces that are still in motion.
+          </p>
+          <p>
+            Instead of shipping everything at once, I am preparing the lab as a
+            stream of smaller releases that can stay rough without becoming
+            messy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-20 lg:mt-28">
+    <div class="grid gap-4 lg:grid-cols-2">
+      {
+        routes.map((route) => (
+          <a
+            href={route.href}
+            class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
+          >
+            <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              {route.note}
+            </p>
+            <h3 class="mt-8 max-w-[11ch] font-display text-4xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-5xl">
+              {route.title}
+            </h3>
+          </a>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>

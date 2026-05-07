@@ -9,13 +9,11 @@ const contactChannels = [
   },
   {
     title: "LinkedIn",
-    value: "alex-casal",
     href: "https://www.linkedin.com/in/alexcasaldaw/",
     note: "For professional context and intros",
   },
   {
     title: "GitHub",
-    value: "alexcasal",
     href: "https://github.com/AlexCasal",
     note: "Code, experiments, and open work",
   },
@@ -27,7 +25,7 @@ const contactChannels = [
   title="Alex Casal | Contact"
   description="Get in touch with Alex Casal for collaborations, commissions, and web projects with a clear editorial point of view."
 >
-  <section class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20">
+  <section class="relative overflow-hidden border-[var(--line)] pb-16 lg:pb-20">
     <div aria-hidden="true" class="absolute right-[8%] top-8 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"></div>
 
     <div class="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)] lg:items-end">
@@ -62,13 +60,13 @@ const contactChannels = [
 
       <aside class="lg:pb-2">
         <div class="rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-6 sm:p-8">
-          <p class="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-[var(--accent-cool)]">
+          <p class="font-mono uppercase tracking-[0.28em] text-[var(--accent-cool)]">
             Contact details
           </p>
 
           <dl class="mt-6 space-y-5">
             <div class="border-t border-[var(--line)] pt-5 first:border-t-0 first:pt-0">
-              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              <dt class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)]">
                 Availability
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
@@ -77,7 +75,7 @@ const contactChannels = [
             </div>
 
             <div class="border-t border-[var(--line)] pt-5">
-              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              <dt class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)]">
                 Typical response
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
@@ -86,7 +84,7 @@ const contactChannels = [
             </div>
 
             <div class="border-t border-[var(--line)] pt-5">
-              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              <dt class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)]">
                 Location
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
@@ -119,13 +117,10 @@ const contactChannels = [
           rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
           class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
         >
-          <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+          <p class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
             {channel.title}
           </p>
-          <h3 class="mt-8 break-words font-display text-3xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-4xl">
-            {channel.value}
-          </h3>
-          <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+          <p class="mt-4 text-base leading-7  sm:text-lg sm:leading-8">
             {channel.note}
           </p>
         </a>
