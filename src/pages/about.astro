@@ -21,6 +21,39 @@ const routes = [
     note: "Say hello",
   },
 ];
+
+const stackGroups = [
+  {
+    title: "Frontend",
+    text: "The part of the stack where I feel most at home: interfaces, components, layouts, interaction, and the small details that make a product feel clear.",
+    tools: ["Astro", "React", "TypeScript", "JavaScript", "HTML", "CSS", "TailWind CSS"],
+  },
+  {
+    title: "Backend",
+    text: "I build the server-side pieces needed to support real products: APIs, data flows, authentication, integrations, and simple services that stay understandable.",
+    tools: ["Node.js", "Express", "REST APIs", "PHP", "Laravel", "SQL"],
+  },
+  {
+    title: "Mobile & Web",
+    text: "I like building experiences that work across screens, from responsive websites to mobile-friendly interfaces and app-like flows.",
+    tools: ["Responsive UI", "Flutter", "Angular",],
+  },
+  {
+    title: "Infra",
+    text: "I care about how projects run after the code is written: deployments, environments, containers, domains, and the practical operations around a site.",
+    tools: ["Docker", "Linux", "Vercel", "GitHub Pages"],
+  },
+  {
+    title: "Automation",
+    text: "I use scripts and tooling to remove repetitive work, connect systems, and make development workflows faster and less fragile.",
+    tools: ["GitHub Actions", "Shell", "npm scripts", "CI/CD", "Webhooks"],
+  },
+  {
+    title: "AI assisted",
+    text: "I use AI as part of my workflow to prototype faster, review ideas, automate repetitive tasks, and explore solutions before deciding what to build.",
+    tools: ["Prompting", "Code review", "Rapid prototyping", "Research", "Task automation"],
+  },
+];
 ---
 
 <BaseLayout title="Alex Casal | About">
@@ -168,6 +201,57 @@ const routes = [
       </div>
     </div>
   </section>
+
+  <section
+    aria-labelledby="how-i-build"
+    class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16"
+  >
+    <div
+      class="grid gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-14"
+    >
+      <div class="lg:sticky lg:top-32 lg:self-start">
+        <p
+          class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]"
+        >
+          How I build
+        </p>
+        <h2
+          id="how-i-build"
+          class="mt-4 max-w-[9ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl"
+        >
+          The stack I use to ship.
+        </h2>
+        <p class="mt-6 max-w-md text-base leading-7 text-[var(--muted)]">
+          I like understanding the full path of a product: the interface, the
+          backend behind it, the infrastructure that runs it, and the automation
+          that keeps the work moving.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {
+          stackGroups.map((group) => (
+            <article class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8">
+              <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--accent-cool)]">
+                {group.title}
+              </p>
+              <p class="mt-5 text-base leading-7 text-[var(--muted)]">
+                {group.text}
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                {group.tools.map((tool) => (
+                  <span class="rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-[var(--soft)]">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <section class="mt-20 lg:mt-28">
     <div class="grid gap-4 lg:grid-cols-3">
       {
