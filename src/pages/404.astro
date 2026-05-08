@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const routes = [
+  {
+    href: "/",
+    label: "Home",
+    note: "Start again",
+    text: "Return to the main surface of the site.",
+  },
+  {
+    href: "/projects",
+    label: "Projects",
+    note: "Built work",
+    text: "Go to the selected projects and finished work.",
+  },
+  {
+    href: "/experiences",
+    label: "Experiences",
+    note: "Posts",
+    text: "Read the latest reflections and publications.",
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    note: "Say hello",
+    text: "Reach me if a link should exist here.",
+  },
+];
+---
+
+<BaseLayout
+  title="Alex Casal | Page not found"
+  description="The requested page could not be found on Alex Casal's personal website."
+>
+  <section
+    class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute right-[10%] top-8 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"
+    >
+    </div>
+
+    <div
+      class="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)] lg:items-end"
+    >
+      <div>
+        <div class="flex items-center gap-4">
+          <p
+            class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]"
+          >
+            Error / 404
+          </p>
+          <span class="h-px flex-1 bg-[var(--line)]"></span>
+        </div>
+
+        <h1
+          class="mt-6 max-w-[10ch] font-display text-[clamp(4rem,12vw,9rem)] leading-[0.86] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft"
+        >
+          This page is not on the map.
+        </h1>
+
+        <div
+          class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9"
+        >
+          <p>
+            The link may be old, the route may have moved, or the page may not
+            exist yet.
+          </p>
+          <p>
+            You can head back into the site from one of the routes below.
+          </p>
+        </div>
+      </div>
+
+      <aside class="lg:pb-2">
+        <div
+          class="rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-6 sm:p-8"
+        >
+          <p
+            class="font-mono uppercase tracking-[0.28em] text-[var(--accent-cool)]"
+          >
+            Quick exit
+          </p>
+          <p class="mt-5 text-sm leading-6 text-[var(--muted)] sm:text-base">
+            When a page disappears, the best move is usually back to the
+            beginning.
+          </p>
+          <a
+            href="/"
+            class="mt-6 inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-5 py-3 text-sm text-[#0b0d10] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+          >
+            Go home
+            <span
+              class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[#0b0d10]/65"
+              >/</span
+            >
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section aria-labelledby="404-routes" class="mt-20 lg:mt-28">
+    <div class="flex items-end justify-between gap-6 border-b border-[var(--line)] pb-6">
+      <div>
+        <p
+          class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]"
+        >
+          Available routes
+        </p>
+        <h2
+          id="404-routes"
+          class="mt-4 font-display text-[clamp(2.2rem,5vw,4.8rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)]"
+        >
+          Try one of these.
+        </h2>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {
+        routes.map((route) => (
+          <a
+            href={route.href}
+            class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
+          >
+            <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              {route.note}
+            </p>
+            <h3 class="mt-8 font-display text-4xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)]">
+              {route.label}
+            </h3>
+            <p class="mt-4 text-base leading-7 text-[var(--muted)]">
+              {route.text}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
