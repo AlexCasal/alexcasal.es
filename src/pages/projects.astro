@@ -10,7 +10,7 @@ const projects = [
     title: "alexcasal.es",
     kind: "Personal website",
     summary:
-      "The site itself: an Astro-based personal internet that tries to behave more like a studio surface than a standard portfolio.",
+      "The site itself: an Astro-based personal website that tries to behave more like a studio surface than a standard portfolio.",
     githubUrl: "https://github.com/AlexCasal/alexcasal.es",
     liveUrl: null,
     language: "Astro",
@@ -22,10 +22,10 @@ const projects = [
     title: "Zara Challenge",
     kind: "Frontend challenge",
     summary:
-      "A retail interface exercise focused on structure, browsing clarity, and translating a familiar product system into a sharper front-end build.",
+      "A retail front-end application originally built as part of a technical interview process for Massimo Dutti, focused on consuming a product API and creating a clean, scalable browsing experience.",
     githubUrl: "https://github.com/AlexCasal/zara-challenge",
     liveUrl: "https://zara-challenge-rouge.vercel.app",
-    language: "JavaScript",
+    language: "React",
     updatedLabel: "Mar 2026",
     status: "Shipped",
   },
@@ -69,9 +69,7 @@ const projects = [
     >
     </div>
 
-    <div
-      class="grid gap-10 lg:grid-cols-[1.5fr_0.5fr] lg:items-end"
-    >
+    <div class="grid gap-10 lg:grid-cols-[1.5fr_0.5fr] lg:items-end">
       <div>
         <div class="flex items-center gap-4">
           <p
@@ -96,67 +94,63 @@ const projects = [
             that happens to live on GitHub. The point is selection, framing, and
             enough context to make the shape of the practice legible.
           </p>
-          <p>
-            Some projects are more resolved, some are collaborative, and some
-            matter because they show an earlier version of the same line of
-            thinking. They do not need identical treatment to belong together.
-          </p>
+          <p></p>
+          <dd class="mt-9">
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-4 py-2 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
+            >
+              Do you want to see all my repos?
+              <span
+                class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]"
+                >Here is my GitHub</span
+              >
+            </a>
+          </dd>
         </div>
+      </div>
+    </div>
+
+    <section aria-labelledby="project-signals" class="mt-16 lg:mt-20">
+      <div
+        class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8"
+      >
+        <p
+          class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]"
+        >
+          Before you scroll
+        </p>
+        <h2
+          id="project-signals"
+          class="mt-5 max-w-[16ch] font-display text-[clamp(2rem,4vw,3.6rem)] leading-[0.95] tracking-[-0.07em] text-[var(--ink)]"
+        >
+          Here you will only see projects I consider finished.
+        </h2>
+        <p
+          class="mt-4 max-w-3xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8"
+        >
+          If you want to see work in progress, half-built ideas, and experiments
+          that are still evolving, head to the Laboratory section.
+        </p>
         <dd class="mt-9">
           <a
-            href={profileUrl}
+            href="/lab"
             target="_blank"
             rel="noreferrer"
             class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-4 py-2 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
           >
-            Do you want to see all my repos?
+            Do you want to go to the lab?
             <span
               class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]"
-              >Here is my GitHub</span
+              >Here is the Lab</span
             >
           </a>
         </dd>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section aria-labelledby="project-signals" class="mt-16 lg:mt-20">
-    <div
-      class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8"
-    >
-      <p
-        class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]"
-      >
-        Before you scroll
-      </p>
-      <h2
-        id="project-signals"
-        class="mt-5 max-w-[16ch] font-display text-[clamp(2rem,4vw,3.6rem)] leading-[0.95] tracking-[-0.07em] text-[var(--ink)]"
-      >
-        Here you will only see projects I consider finished.
-      </h2>
-      <p
-        class="mt-4 max-w-3xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8"
-      >
-        If you want to see work in progress, half-built ideas, and experiments
-        that are still evolving, head to the Laboratory section.
-      </p>
-      <dd class="mt-9">
-        <a
-          href="/lab"
-          target="_blank"
-          rel="noreferrer"
-          class="inline-flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-4 py-2 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--line-strong)] hover:bg-[var(--surface)]"
-        >
-          Do you want to go to the lab?
-          <span
-            class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]"
-            >Here is the Lab</span
-          >
-        </a>
-      </dd>
-    </div>
+    <ProjectGrid projects={projects} profileUrl={profileUrl} />
   </section>
-
-  <ProjectGrid projects={projects} profileUrl={profileUrl} />
 </BaseLayout>
