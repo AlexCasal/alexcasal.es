@@ -1,23 +1,63 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const routes = [
+const publications = [
   {
-    href: "/about",
-    note: "Context",
-    title: "Read the broader background in About.",
+    title: "FOSDEM 2026",
+    eyebrow: "Conference",
+    date: "Feb 2026",
+    location: "Brussels, Belgium",
+    status: "Draft",
+    images: [
+      {
+        src: "/experiences/FOSDEM-01.jpg",
+        alt: "People gathered at FOSDEM 2026.",
+      },
+      {
+        src: "/experiences/FOSDEM-02.jpg",
+        alt: "FOSDEM Meeting.",
+      },
+      {
+        src: "/experiences/FOSDEM-03.jpg",
+        alt: "GPUL Meet.",
+      }
+    ],
+    summary:
+      "A short reflection about being at FOSDEM 2026: the talks, the open source energy, the people, and the ideas I brought back with me.",
+    body:
+      "FOSDEM was one of those experiences that makes software feel bigger than a screen. I spent the event moving between talks, stands, conversations, and small moments where the open source community felt very real. This publication will collect what surprised me, what I learned, and why the trip mattered.",
   },
   {
-    href: "/contact",
-    note: "Say hello",
-    title: "Start a conversation while Experiences is in progress.",
+    title: "HACKUDC 2026",
+    eyebrow: "Event",
+    date: "2026",
+    location: "A Coruna, Spain",
+    status: "Draft",
+    images: [
+      {
+        src: "/experiences/HACKUDC-01.jpg",
+        alt: "HackUDC Organization.",
+      },
+      {
+        src: "/experiences/HACKUDC-02.jpg",
+        alt: "HackUDC attendees gathered during the event.",
+      },
+      {
+        src: "/experiences/HACKUDC-03.jpg",
+        alt: "A HackUDC workshop session with participants.",
+      },
+    ],
+    summary:
+      "A first version of the story behind HACKUDC 2026: the preparation, the atmosphere during the event, and the lessons after everything finished.",
+    body:
+      "HACKUDC 2026 was intense in the best way: a mix of organization, teamwork, pressure, and seeing people build things in real time. This publication will explain how I lived the event from the inside, what worked, what I would improve, and what I learned from the experience.",
   },
 ];
 ---
 
 <BaseLayout
   title="Alex Casal | Experiences"
-  description="Experiences page for post-style reflections about real-life situations, lessons learned, and growth as a developer."
+  description="Experience publications from Alex Casal: post-style reflections about events, lessons learned, and growth as a developer."
 >
   <section
     class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
@@ -34,7 +74,7 @@ const routes = [
           <p
             class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]"
           >
-            Experiences / 05
+            Experiences / Publications
           </p>
           <span class="h-px flex-1 bg-[var(--line)]"></span>
         </div>
@@ -42,19 +82,20 @@ const routes = [
         <h1
           class="mt-6 font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft"
         >
-          Experiences are being prepared.
+          Experiences, written while they are still warm.
         </h1>
 
         <div
           class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9"
         >
           <p>
-            This section will collect post-style stories from real situations:
-            what happened, what I learned, and how it changed my approach.
+            This section collects post-style stories from real situations: what
+            happened, what I learned, and how each experience changed my way of
+            working.
           </p>
           <p>
-            Think of it as a cleaner, more useful version of LinkedIn posts:
-            short, practical, and focused on lessons instead of noise.
+            The first drafts are intentionally direct. I will keep polishing the
+            text, but the page is ready to hold proper publications now.
           </p>
         </div>
       </div>
@@ -62,23 +103,180 @@ const routes = [
     </div>
   </section>
 
-  <section class="mt-20 lg:mt-28">
-    <div class="grid gap-4 lg:grid-cols-2">
+  <section aria-labelledby="latest-publications" class="mt-20 lg:mt-28">
+    <div class="flex items-end justify-between gap-6 border-b border-[var(--line)] pb-6">
+      <div>
+        <p
+          class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]"
+        >
+          Latest notes
+        </p>
+        <h2
+          id="latest-publications"
+          class="mt-4 font-display text-[clamp(2.2rem,5vw,4.8rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)]"
+        >
+          Publications
+        </h2>
+      </div>
+      <p class="hidden max-w-xs text-right text-sm leading-6 text-[var(--soft)] sm:block">
+        Drafts first, better words later.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-5 lg:grid-cols-2">
       {
-        routes.map((route) => (
-          <a
-            href={route.href}
-            class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
+        publications.map((publication, publicationIndex) => (
+          <article
+            class="group flex min-h-[32rem] flex-col rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
           >
-            <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
-              {route.note}
-            </p>
-            <h3 class="mt-8 max-w-[11ch] font-display text-4xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-5xl">
-              {route.title}
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-3 py-1 font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--accent)]">
+                {publication.eyebrow}
+              </span>
+              <span class="font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                {publication.status}
+              </span>
+            </div>
+
+            <h3 class="mt-8 max-w-[12ch] font-display text-[clamp(2.45rem,6vw,4.8rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)]">
+              {publication.title}
             </h3>
-          </a>
+
+            <dl class="mt-7 grid gap-3 border-y border-[var(--line)] py-5 text-sm sm:grid-cols-2">
+              <div>
+                <dt class="font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                  Date
+                </dt>
+                <dd class="mt-1 text-[var(--muted)]">{publication.date}</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                  Place
+                </dt>
+                <dd class="mt-1 text-[var(--muted)]">{publication.location}</dd>
+              </div>
+            </dl>
+
+            <p class="mt-7 text-lg leading-8 text-[var(--muted)]">
+              {publication.summary}
+            </p>
+            <p class="mt-5 text-base leading-7 text-[var(--soft)]">
+              {publication.body}
+            </p>
+
+            <div
+              class="mt-auto pt-8"
+              data-carousel
+              data-carousel-index={publicationIndex}
+            >
+              <div class="relative -mx-2 overflow-hidden rounded-[1.45rem] border border-[var(--line)] bg-[var(--surface-soft)] sm:-mx-4">
+                <div
+                  class="carousel-track flex transition-transform duration-500 ease-out"
+                  data-carousel-track
+                >
+                  {
+                    publication.images.map((image) => (
+                      <figure class="min-w-full">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          loading="lazy"
+                          class="aspect-[16/10] w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100"
+                        />
+                      </figure>
+                    ))
+                  }
+                </div>
+
+                {
+                  publication.images.length > 1 && (
+                    <div class="absolute inset-x-4 top-1/2 flex -translate-y-1/2 items-center justify-between">
+                      <button
+                        type="button"
+                        aria-label={`Previous image for ${publication.title}`}
+                        class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
+                        data-carousel-prev
+                      >
+                        <span aria-hidden="true">‹</span>
+                      </button>
+                      <button
+                        type="button"
+                        aria-label={`Next image for ${publication.title}`}
+                        class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
+                        data-carousel-next
+                      >
+                        <span aria-hidden="true">›</span>
+                      </button>
+                    </div>
+                  )
+                }
+              </div>
+
+              {
+                publication.images.length > 1 && (
+                  <div class="mt-4 flex justify-center gap-2" data-carousel-dots>
+                    {publication.images.map((_, imageIndex) => (
+                      <button
+                        type="button"
+                        aria-label={`Show image ${imageIndex + 1} for ${publication.title}`}
+                        class="h-2.5 w-2.5 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] transition duration-300"
+                        data-carousel-dot
+                        data-carousel-dot-index={imageIndex}
+                      />
+                    ))}
+                  </div>
+                )
+              }
+            </div>
+          </article>
         ))
       }
     </div>
   </section>
+
+  <script>
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector("[data-carousel-track]");
+      if (!(track instanceof HTMLElement)) return;
+
+      const previousButton = carousel.querySelector("[data-carousel-prev]");
+      const nextButton = carousel.querySelector("[data-carousel-next]");
+      const dots = Array.from(
+        carousel.querySelectorAll("[data-carousel-dot]"),
+      ).filter((dot) => dot instanceof HTMLElement);
+      const slideCount = track.children.length;
+      let activeIndex = 0;
+
+      const setActiveSlide = (nextIndex: number) => {
+        if (slideCount < 2) return;
+
+        activeIndex = (nextIndex + slideCount) % slideCount;
+        track.style.transform = `translateX(-${activeIndex * 100}%)`;
+
+        dots.forEach((dot, index) => {
+          const isActive = index === activeIndex;
+          dot.setAttribute("aria-current", isActive ? "true" : "false");
+          dot.style.backgroundColor = isActive ? "var(--accent)" : "";
+          dot.style.borderColor = isActive ? "var(--accent)" : "";
+        });
+      };
+
+      previousButton?.addEventListener("click", () => {
+        setActiveSlide(activeIndex - 1);
+      });
+
+      nextButton?.addEventListener("click", () => {
+        setActiveSlide(activeIndex + 1);
+      });
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const dotIndex = Number(dot.getAttribute("data-carousel-dot-index"));
+          setActiveSlide(dotIndex);
+        });
+      });
+
+      setActiveSlide(0);
+    });
+  </script>
 </BaseLayout>
