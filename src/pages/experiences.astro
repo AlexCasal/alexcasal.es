@@ -20,12 +20,11 @@ const publications = [
       {
         src: "/experiences/FOSDEM-03.jpg",
         alt: "GPUL Meet.",
-      }
+      },
     ],
     summary:
-      "A short reflection about being at FOSDEM 2026: the talks, the open source energy, the people, and the ideas I brought back with me.",
-    body:
-      "FOSDEM was one of those experiences that makes software feel bigger than a screen. I spent the event moving between talks, stands, conversations, and small moments where the open source community felt very real. This publication will collect what surprised me, what I learned, and why the trip mattered.",
+      "A few days at FOSDEM 2026 surrounded by open source, late-night conversations, too many beers, and nearly 30 GPUL members sharing the experience together in Brussels.",
+    body: "FOSDEM 2026 felt less like a conference and more like a meeting point for people who genuinely enjoy building things together. Between talks, devrooms, random hallway conversations, and nights ending way too late, most of the experience happened outside the schedule itself. What made it special was going there with GPUL. We were almost 30 members in Brussels, and that completely changed the atmosphere of the trip. Every day became a mix of learning, discussing ideas, meeting people from different communities, and ending up in some bar talking about open source, projects, infrastructure, Linux, or whatever came up after a few beers. This publication is a small reflection on the event, the people around it, and why communities like GPUL make experiences like FOSDEM feel much bigger than just another tech conference.",
   },
   {
     title: "HACKUDC 2026",
@@ -48,9 +47,8 @@ const publications = [
       },
     ],
     summary:
-      "A first version of the story behind HACKUDC 2026: the preparation, the atmosphere during the event, and the lessons after everything finished.",
-    body:
-      "HACKUDC 2026 was intense in the best way: a mix of organization, teamwork, pressure, and seeing people build things in real time. This publication will explain how I lived the event from the inside, what worked, what I would improve, and what I learned from the experience.",
+      "After attending HACKUDC for two years as a participant, 2026 was the first time I experienced the event from the other side: helping organize it, coordinating with people remotely, and learning how much work happens behind the scenes.",
+    body: "For the past two years, HACKUDC was one of those events I always looked forward to as a participant. Building projects, meeting people, surviving on caffeine, and watching ideas turn into something real in just a weekend was already an amazing experience. But this year I wanted to understand how the event actually worked behind the scenes. So instead of joining with a team, I became part of the organization. HACKUDC 2026 taught me much more than I expected. A big part of the work happened months before the event itself: coordinating with people remotely, organizing tasks, solving problems constantly, talking with companies to build partnerships and sponsorships, and making sure hundreds of small details somehow worked together in the end. It was stressful at times, but also incredibly rewarding. Seeing participants enjoy the event while knowing everything that happened behind the curtain gave me a completely different perspective on community-driven projects and teamwork.",
   },
 ];
 ---
@@ -104,7 +102,9 @@ const publications = [
   </section>
 
   <section aria-labelledby="latest-publications" class="mt-20 lg:mt-28">
-    <div class="flex items-end justify-between gap-6 border-b border-[var(--line)] pb-6">
+    <div
+      class="flex items-end justify-between gap-6 border-b border-[var(--line)] pb-6"
+    >
       <div>
         <p
           class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]"
@@ -118,7 +118,9 @@ const publications = [
           Publications
         </h2>
       </div>
-      <p class="hidden max-w-xs text-right text-sm leading-6 text-[var(--soft)] sm:block">
+      <p
+        class="hidden max-w-xs text-right text-sm leading-6 text-[var(--soft)] sm:block"
+      >
         Drafts first, better words later.
       </p>
     </div>
@@ -126,9 +128,7 @@ const publications = [
     <div class="mt-8 grid gap-5 lg:grid-cols-2">
       {
         publications.map((publication, publicationIndex) => (
-          <article
-            class="group flex min-h-[32rem] flex-col rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
-          >
+          <article class="group flex min-h-[32rem] flex-col rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8">
             <div class="flex flex-wrap items-center gap-3">
               <span class="rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-3 py-1 font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--accent)]">
                 {publication.eyebrow}
@@ -174,59 +174,53 @@ const publications = [
                   class="carousel-track flex transition-transform duration-500 ease-out"
                   data-carousel-track
                 >
-                  {
-                    publication.images.map((image) => (
-                      <figure class="min-w-full">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          loading="lazy"
-                          class="aspect-[16/10] w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100"
-                        />
-                      </figure>
-                    ))
-                  }
+                  {publication.images.map((image) => (
+                    <figure class="min-w-full">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        class="aspect-[16/10] w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100"
+                      />
+                    </figure>
+                  ))}
                 </div>
 
-                {
-                  publication.images.length > 1 && (
-                    <div class="absolute inset-x-4 top-1/2 flex -translate-y-1/2 items-center justify-between">
-                      <button
-                        type="button"
-                        aria-label={`Previous image for ${publication.title}`}
-                        class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
-                        data-carousel-prev
-                      >
-                        <span aria-hidden="true">‹</span>
-                      </button>
-                      <button
-                        type="button"
-                        aria-label={`Next image for ${publication.title}`}
-                        class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
-                        data-carousel-next
-                      >
-                        <span aria-hidden="true">›</span>
-                      </button>
-                    </div>
-                  )
-                }
+                {publication.images.length > 1 && (
+                  <div class="absolute inset-x-4 top-1/2 flex -translate-y-1/2 items-center justify-between">
+                    <button
+                      type="button"
+                      aria-label={`Previous image for ${publication.title}`}
+                      class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
+                      data-carousel-prev
+                    >
+                      <span aria-hidden="true">‹</span>
+                    </button>
+                    <button
+                      type="button"
+                      aria-label={`Next image for ${publication.title}`}
+                      class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
+                      data-carousel-next
+                    >
+                      <span aria-hidden="true">›</span>
+                    </button>
+                  </div>
+                )}
               </div>
 
-              {
-                publication.images.length > 1 && (
-                  <div class="mt-4 flex justify-center gap-2" data-carousel-dots>
-                    {publication.images.map((_, imageIndex) => (
-                      <button
-                        type="button"
-                        aria-label={`Show image ${imageIndex + 1} for ${publication.title}`}
-                        class="h-2.5 w-2.5 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] transition duration-300"
-                        data-carousel-dot
-                        data-carousel-dot-index={imageIndex}
-                      />
-                    ))}
-                  </div>
-                )
-              }
+              {publication.images.length > 1 && (
+                <div class="mt-4 flex justify-center gap-2" data-carousel-dots>
+                  {publication.images.map((_, imageIndex) => (
+                    <button
+                      type="button"
+                      aria-label={`Show image ${imageIndex + 1} for ${publication.title}`}
+                      class="h-2.5 w-2.5 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] transition duration-300"
+                      data-carousel-dot
+                      data-carousel-dot-index={imageIndex}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </article>
         ))
