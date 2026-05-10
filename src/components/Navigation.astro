@@ -25,12 +25,16 @@ const isActive = (href: string) => pathname === href;
         </p>
       </a>
 
-      <div class="hidden items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-4 py-2 xl:flex">
+      <a
+        href="/docs/CV_Alex_Casal.pdf"
+        download
+        class="group hidden items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-4 py-2 transition duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-[rgba(var(--accent-rgb),0.08)] hover:shadow-[0_0_24px_rgba(var(--accent-rgb),0.14)] xl:flex"
+      >
         <span class="h-2 w-2 rounded-full bg-[var(--accent)] shadow-[0_0_18px_var(--accent)]"></span>
-        <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--muted)]">
-          Open for selected work
+        <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--muted)] transition duration-300 group-hover:text-[var(--ink)]">
+          Download CV
         </span>
-      </div>
+      </a>
 
       <nav aria-label="Primary" class="hidden md:block">
         <ul class="flex items-center gap-4 lg:gap-5">
