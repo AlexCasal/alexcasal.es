@@ -2,12 +2,12 @@
 const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/lab", label: "Lab" },
-  { href: "/experiences", label: "Experiences" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", accent: "home" },
+  { href: "/about", label: "About", accent: "about" },
+  { href: "/projects", label: "Projects", accent: "projects" },
+  { href: "/lab", label: "Lab", accent: "lab" },
+  { href: "/experiences", label: "Experiences", accent: "experiences" },
+  { href: "/contact", label: "Contact", accent: "contact" },
 ];
 
 const isActive = (href: string) => pathname === href;
@@ -39,17 +39,18 @@ const isActive = (href: string) => pathname === href;
               <a
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                class="group inline-flex items-center gap-2 text-sm"
+                data-nav-accent={link.accent}
+                class="nav-link group inline-flex items-center gap-2 rounded-full px-2 py-1.5 text-sm"
               >
                 <span class:list={[
                   "font-mono text-[0.64rem] uppercase tracking-[0.22em] transition duration-300",
-                  isActive(link.href) ? "text-[var(--accent)]" : "text-[var(--soft)] group-hover:text-[var(--accent)]",
+                  isActive(link.href) ? "text-[var(--page-accent)]" : "text-[var(--soft)]",
                 ]}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span class:list={[
                   "transition duration-300",
-                  isActive(link.href) ? "text-[var(--ink)]" : "text-[var(--muted)] group-hover:text-[var(--ink)]",
+                  isActive(link.href) ? "text-[var(--ink)]" : "text-[var(--muted)]",
                 ]}>
                   {link.label}
                 </span>
@@ -73,10 +74,11 @@ const isActive = (href: string) => pathname === href;
                   <a
                     href={link.href}
                     aria-current={isActive(link.href) ? "page" : undefined}
+                    data-nav-accent={link.accent}
                     class:list={[
-                      "flex items-center justify-between rounded-2xl px-4 py-3 text-sm transition duration-300",
+                      "nav-link flex items-center justify-between rounded-2xl px-4 py-3 text-sm transition duration-300",
                       isActive(link.href)
-                        ? "bg-[var(--accent)] text-[#0b0d10]"
+                        ? "bg-[rgba(var(--page-accent-rgb),0.12)] text-[var(--ink)]"
                         : "text-[var(--muted)] hover:bg-[var(--surface)] hover:text-[var(--ink)]",
                     ]}
                   >
@@ -96,6 +98,56 @@ const isActive = (href: string) => pathname === href;
 </header>
 
 <style>
+  .nav-link {
+    --nav-accent: var(--accent);
+    --nav-accent-rgb: var(--accent-rgb);
+  }
+
+  .nav-link[data-nav-accent="home"],
+  .nav-link[data-nav-accent="contact"] {
+    --nav-accent: #d8ff56;
+    --nav-accent-rgb: 216, 255, 86;
+  }
+
+  .nav-link[data-nav-accent="about"] {
+    --nav-accent: #38bdf8;
+    --nav-accent-rgb: 56, 189, 248;
+  }
+
+  .nav-link[data-nav-accent="projects"] {
+    --nav-accent: #fb923c;
+    --nav-accent-rgb: 251, 146, 60;
+  }
+
+  .nav-link[data-nav-accent="lab"] {
+    --nav-accent: #f472b6;
+    --nav-accent-rgb: 244, 114, 182;
+  }
+
+  .nav-link[data-nav-accent="experiences"] {
+    --nav-accent: #a78bfa;
+    --nav-accent-rgb: 167, 139, 250;
+  }
+
+  .nav-link:hover span:first-child,
+  .nav-link:focus-visible span:first-child {
+    color: var(--nav-accent);
+  }
+
+  .nav-link:hover span:nth-child(2),
+  .nav-link:focus-visible span:nth-child(2) {
+    color: var(--ink);
+  }
+
+  .nav-link[aria-current="page"] {
+    background: rgba(var(--page-accent-rgb), 0.08);
+    box-shadow: inset 0 -1px 0 rgba(var(--page-accent-rgb), 0.48), 0 0 22px rgba(var(--page-accent-rgb), 0.1);
+  }
+
+  .nav-link[aria-current="page"] span:first-child {
+    color: var(--page-accent);
+  }
+
   details[open] .mobile-menu {
     display: grid;
   }
