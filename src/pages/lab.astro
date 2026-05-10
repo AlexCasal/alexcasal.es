@@ -13,6 +13,23 @@ const routes = [
     title: "Follow the journey in Experiences.",
   },
 ];
+
+const labProjects = [
+  {
+    name: "devnotes-lab",
+    title: "DevNotes Lab",
+    status: "In progress",
+    kind: "Developer notes",
+    githubUrl: "https://github.com/AlexCasal/devnotes-lab",
+    summary:
+      "A small developer notes lab for tutorials, experiments, and technical posts that I want to keep, share, or improve over time.",
+    description:
+      "DevNotes Lab is a lightweight project for publishing technical notes, tutorials, and small development experiments without adding unnecessary complexity. Posts live directly in the codebase instead of a database, which keeps the project simple to maintain, version, and improve through GitHub pull requests.",
+    detail:
+      "It is meant to collect setup guides, developer workflows, useful commands, small experiments, and notes about tools I use while building software.",
+    tags: ["Astro", "TypeScript", "Markdown", "GitHub", "Developer Tools"],
+  },
+];
 ---
 
 <BaseLayout
@@ -21,7 +38,7 @@ const routes = [
   page="lab"
 >
   <section
-    class="page-hero relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
+    class="page-hero relative overflow-hidden border-[var(--line)] pb-16 lg:pb-20"
   >
     <div
       aria-hidden="true"
@@ -43,7 +60,7 @@ const routes = [
         <h1
           class="mt-6 font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft"
         >
-          The lab opens soon.
+          The lab is starting to open.
         </h1>
 
         <div
@@ -60,6 +77,90 @@ const routes = [
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="lab-projects" class="mt-20 lg:mt-28">
+    <div
+      class="accent-divider flex flex-col gap-5 border-t pt-8 sm:flex-row sm:items-end sm:justify-between"
+    >
+      <div>
+        <p
+          class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]"
+        >
+          Laboratory projects
+        </p>
+        <h2
+          id="lab-projects"
+          class="mt-4 max-w-[11ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl"
+        >
+          Notes, tests, and useful little builds.
+        </h2>
+      </div>
+      <p class="max-w-md text-base leading-7 text-[var(--muted)]">
+        Smaller projects can stay flexible here while they are still becoming
+        something clearer.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 lg:grid-cols-2">
+      {
+        labProjects.map((project) => (
+          <article
+            id={project.name}
+            class="accent-card group rounded-[2rem] border border-[var(--line)] p-6 sm:p-8"
+          >
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--accent)]">
+                  {project.status}
+                </p>
+                <p class="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                  {project.kind}
+                </p>
+              </div>
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
+                #{project.name}
+              </span>
+            </div>
+
+            <h3 class="mt-10 max-w-[9ch] font-display text-[clamp(2.45rem,6vw,4.8rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
+              {project.title}
+            </h3>
+            <p class="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">
+              {project.summary}
+            </p>
+            <p class="mt-5 max-w-3xl text-base leading-7 text-[var(--muted)]">
+              {project.description}
+            </p>
+            <p class="mt-4 max-w-3xl text-base leading-7 text-[var(--soft)]">
+              {project.detail}
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span class="accent-pill rounded-full border px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.18em]">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-3 border-t border-[var(--line)] pt-5">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="accent-button inline-flex items-center gap-3 rounded-full border bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5"
+              >
+                GitHub
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+                  repo
+                </span>
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 
