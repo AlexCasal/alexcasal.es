@@ -56,9 +56,9 @@ const stackGroups = [
 ];
 ---
 
-<BaseLayout title="Alex Casal | About">
+<BaseLayout title="Alex Casal | About" page="about">
   <section
-    class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
+    class="page-hero relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
   >
     <div
       aria-hidden="true"
@@ -100,7 +100,7 @@ const stackGroups = [
       </div>
       <aside class="lg:pb-2">
         <div
-          class="rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-6 sm:p-8"
+          class="accent-panel rounded-[2rem] border border-[var(--line)] p-6 sm:p-8"
         >
           <p
             class="font-mono uppercase tracking-[0.28em] text-[var(--accent-cool)]"
@@ -204,7 +204,7 @@ const stackGroups = [
 
   <section
     aria-labelledby="how-i-build"
-    class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16"
+    class="accent-divider mt-20 border-t pt-12 lg:mt-28 lg:pt-16"
   >
     <div
       class="grid gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-14"
@@ -231,7 +231,7 @@ const stackGroups = [
       <div class="grid gap-4 sm:grid-cols-2">
         {
           stackGroups.map((group) => (
-            <article class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8">
+            <article class="accent-card rounded-[2rem] border border-[var(--line)] p-6 sm:p-8">
               <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--accent-cool)]">
                 {group.title}
               </p>
@@ -240,7 +240,7 @@ const stackGroups = [
               </p>
               <div class="mt-6 flex flex-wrap gap-2">
                 {group.tools.map((tool) => (
-                  <span class="rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-[var(--soft)]">
+                  <span class="accent-pill rounded-full border px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.18em]">
                     {tool}
                   </span>
                 ))}
@@ -258,7 +258,7 @@ const stackGroups = [
         routes.map((route) => (
           <a
             href={route.href}
-            class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
+            class="accent-card group rounded-[2rem] border border-[var(--line)] p-6 sm:p-8"
           >
             {" "}
             <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">

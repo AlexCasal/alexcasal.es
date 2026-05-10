@@ -6,11 +6,13 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  page?: "about" | "projects" | "lab" | "experiences";
 }
 
 const {
   title = "Alex Casal | Personal Internet",
   description = "A personal website that mixes digital garden, creative studio, and experimental portfolio.",
+  page,
 } = Astro.props;
 ---
 
@@ -32,7 +34,10 @@ const {
     />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-[var(--page)] text-[var(--ink)] antialiased">
+  <body
+    data-page={page}
+    class="min-h-screen bg-[var(--page)] text-[var(--ink)] antialiased"
+  >
     <a
       href="#content"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[var(--ink)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--page)]"
@@ -41,7 +46,7 @@ const {
     </a>
 
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(216,255,86,0.16),transparent_26%),radial-gradient(circle_at_80%_12%,rgba(121,211,255,0.12),transparent_18%),radial-gradient(circle_at_75%_82%,rgba(216,255,86,0.1),transparent_24%),linear-gradient(180deg,#0b0d10_0%,#090b0d_100%)]"></div>
+      <div class="absolute inset-0 bg-[var(--page-gradient)]"></div>
       <div class="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,var(--grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid)_1px,transparent_1px)] [background-size:4rem_4rem]"></div>
       <div class="absolute inset-x-0 top-0 h-[28rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent)]"></div>
       <div class="absolute left-[10%] top-[22%] h-56 w-56 rounded-full border border-[var(--line)] opacity-30"></div>
@@ -72,12 +77,95 @@ const {
     --line-strong: rgba(242, 245, 238, 0.22);
     --grid: rgba(242, 245, 238, 0.08);
     --accent: #d8ff56;
+    --accent-rgb: 216, 255, 86;
     --accent-strong: #efff9a;
     --accent-soft: rgba(216, 255, 86, 0.14);
     --accent-cool: #79d3ff;
+    --page-accent: var(--accent);
+    --page-accent-rgb: var(--accent-rgb);
+    --page-accent-strong: var(--accent-strong);
+    --page-accent-soft: var(--accent-soft);
+    --page-accent-glow: rgba(var(--page-accent-rgb), 0.18);
+    --page-gradient:
+      radial-gradient(circle at top left, rgba(216, 255, 86, 0.16), transparent 26%),
+      radial-gradient(circle at 80% 12%, rgba(121, 211, 255, 0.12), transparent 18%),
+      radial-gradient(circle at 75% 82%, rgba(216, 255, 86, 0.1), transparent 24%),
+      linear-gradient(180deg, #0b0d10 0%, #090b0d 100%);
     --font-body: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-display: "Syne", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  }
+
+  body[data-page="about"] {
+    --accent: #38bdf8;
+    --accent-rgb: 56, 189, 248;
+    --accent-strong: #bae6fd;
+    --accent-soft: rgba(56, 189, 248, 0.13);
+    --accent-cool: #7dd3fc;
+    --page-accent: #38bdf8;
+    --page-accent-rgb: 56, 189, 248;
+    --page-accent-strong: #bae6fd;
+    --page-accent-soft: rgba(56, 189, 248, 0.13);
+    --page-accent-glow: rgba(56, 189, 248, 0.18);
+    --page-gradient:
+      radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 28%),
+      radial-gradient(circle at 8% 38%, rgba(56, 189, 248, 0.1), transparent 22%),
+      radial-gradient(circle at 76% 88%, rgba(216, 255, 86, 0.07), transparent 24%),
+      linear-gradient(180deg, #0b0d10 0%, #090b0d 100%);
+  }
+
+  body[data-page="projects"] {
+    --accent: #fb923c;
+    --accent-rgb: 251, 146, 60;
+    --accent-strong: #fed7aa;
+    --accent-soft: rgba(251, 146, 60, 0.13);
+    --accent-cool: #fdba74;
+    --page-accent: #fb923c;
+    --page-accent-rgb: 251, 146, 60;
+    --page-accent-strong: #fed7aa;
+    --page-accent-soft: rgba(251, 146, 60, 0.13);
+    --page-accent-glow: rgba(251, 146, 60, 0.18);
+    --page-gradient:
+      radial-gradient(circle at top right, rgba(251, 146, 60, 0.15), transparent 28%),
+      radial-gradient(circle at 10% 36%, rgba(251, 146, 60, 0.1), transparent 20%),
+      radial-gradient(circle at 78% 82%, rgba(121, 211, 255, 0.07), transparent 24%),
+      linear-gradient(180deg, #0b0d10 0%, #090b0d 100%);
+  }
+
+  body[data-page="lab"] {
+    --accent: #f472b6;
+    --accent-rgb: 244, 114, 182;
+    --accent-strong: #fbcfe8;
+    --accent-soft: rgba(244, 114, 182, 0.13);
+    --accent-cool: #f9a8d4;
+    --page-accent: #f472b6;
+    --page-accent-rgb: 244, 114, 182;
+    --page-accent-strong: #fbcfe8;
+    --page-accent-soft: rgba(244, 114, 182, 0.13);
+    --page-accent-glow: rgba(244, 114, 182, 0.18);
+    --page-gradient:
+      radial-gradient(circle at top right, rgba(244, 114, 182, 0.16), transparent 28%),
+      radial-gradient(circle at 12% 36%, rgba(244, 114, 182, 0.1), transparent 22%),
+      radial-gradient(circle at 78% 84%, rgba(121, 211, 255, 0.07), transparent 24%),
+      linear-gradient(180deg, #0b0d10 0%, #090b0d 100%);
+  }
+
+  body[data-page="experiences"] {
+    --accent: #a78bfa;
+    --accent-rgb: 167, 139, 250;
+    --accent-strong: #ddd6fe;
+    --accent-soft: rgba(167, 139, 250, 0.14);
+    --accent-cool: #c4b5fd;
+    --page-accent: #a78bfa;
+    --page-accent-rgb: 167, 139, 250;
+    --page-accent-strong: #ddd6fe;
+    --page-accent-soft: rgba(167, 139, 250, 0.14);
+    --page-accent-glow: rgba(167, 139, 250, 0.18);
+    --page-gradient:
+      radial-gradient(circle at top right, rgba(167, 139, 250, 0.17), transparent 28%),
+      radial-gradient(circle at 12% 34%, rgba(167, 139, 250, 0.1), transparent 22%),
+      radial-gradient(circle at 78% 84%, rgba(216, 255, 86, 0.06), transparent 24%),
+      linear-gradient(180deg, #0b0d10 0%, #090b0d 100%);
   }
 
   html {
@@ -97,7 +185,82 @@ const {
   }
 
   .text-shadow-soft {
-    text-shadow: 0 0 32px rgba(216, 255, 86, 0.12);
+    text-shadow: 0 0 32px rgba(var(--page-accent-rgb), 0.12);
+  }
+
+  .page-hero {
+    background:
+      radial-gradient(circle at top right, rgba(var(--page-accent-rgb), 0.18), transparent 34%),
+      radial-gradient(circle at 8% 12%, rgba(var(--page-accent-rgb), 0.09), transparent 22%);
+  }
+
+  .accent-panel,
+  .accent-card {
+    position: relative;
+    background:
+      linear-gradient(135deg, rgba(var(--page-accent-rgb), 0.105), rgba(var(--page-accent-rgb), 0.025) 46%, rgba(255, 255, 255, 0.018)),
+      var(--surface);
+    box-shadow: inset 0 1px 0 rgba(var(--page-accent-rgb), 0.12);
+  }
+
+  .accent-card {
+    transition:
+      border-color 300ms ease,
+      box-shadow 300ms ease,
+      transform 300ms ease,
+      background 300ms ease;
+  }
+
+  .accent-card:hover {
+    border-color: rgba(var(--page-accent-rgb), 0.72);
+    box-shadow: 0 0 30px rgba(var(--page-accent-rgb), 0.18);
+    transform: translateY(-2px);
+  }
+
+  .accent-card::before,
+  .accent-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+      linear-gradient(90deg, rgba(var(--page-accent-rgb), 0.44), transparent 34%) top left / 100% 1px no-repeat,
+      linear-gradient(180deg, rgba(var(--page-accent-rgb), 0.36), transparent 30%) top left / 1px 100% no-repeat;
+    opacity: 0.58;
+  }
+
+  .accent-button {
+    border-color: rgba(var(--page-accent-rgb), 0.36);
+  }
+
+  .accent-button:hover {
+    border-color: var(--page-accent);
+    background: rgba(var(--page-accent-rgb), 0.1);
+    box-shadow: 0 0 24px rgba(var(--page-accent-rgb), 0.14);
+  }
+
+  .accent-pill {
+    border-color: rgba(var(--page-accent-rgb), 0.35);
+    background: rgba(var(--page-accent-rgb), 0.1);
+    color: var(--page-accent);
+  }
+
+  .accent-divider {
+    border-color: rgba(var(--page-accent-rgb), 0.28);
+  }
+
+  @media (max-width: 640px) {
+    .page-hero {
+      background:
+        radial-gradient(circle at top right, rgba(var(--page-accent-rgb), 0.12), transparent 38%),
+        radial-gradient(circle at 12% 8%, rgba(var(--page-accent-rgb), 0.06), transparent 26%);
+    }
+
+    .accent-card:hover {
+      box-shadow: 0 0 18px rgba(var(--page-accent-rgb), 0.12);
+      transform: translateY(-1px);
+    }
   }
 
   ::selection {

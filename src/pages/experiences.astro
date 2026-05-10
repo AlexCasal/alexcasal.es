@@ -56,9 +56,10 @@ const publications = [
 <BaseLayout
   title="Alex Casal | Experiences"
   description="Experience publications from Alex Casal: post-style reflections about events, lessons learned, and growth as a developer."
+  page="experiences"
 >
   <section
-    class="relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
+    class="page-hero relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
   >
     <div
       aria-hidden="true"
@@ -99,7 +100,7 @@ const publications = [
 
   <section aria-labelledby="latest-publications" class="mt-20 lg:mt-28">
     <div
-      class="flex items-end justify-between gap-6 border-b border-[var(--line)] pb-6"
+      class="accent-divider flex items-end justify-between gap-6 border-b pb-6"
     >
       <div>
         <p
@@ -124,9 +125,9 @@ const publications = [
     <div class="mt-8 grid gap-5 lg:grid-cols-2">
       {
         publications.map((publication, publicationIndex) => (
-          <article class="group flex min-h-[32rem] flex-col rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8">
+          <article class="accent-card group flex min-h-[32rem] flex-col rounded-[2rem] border border-[var(--line)] p-6 sm:p-8">
             <div class="flex flex-wrap items-center gap-3">
-              <span class="rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-3 py-1 font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--accent)]">
+              <span class="accent-pill rounded-full border px-3 py-1 font-mono text-[0.64rem] uppercase tracking-[0.22em]">
                 {publication.eyebrow}
               </span>
               <span class="font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--soft)]">
@@ -165,7 +166,7 @@ const publications = [
               data-carousel
               data-carousel-index={publicationIndex}
             >
-              <div class="relative -mx-2 overflow-hidden rounded-[1.45rem] border border-[var(--line)] bg-[var(--surface-soft)] sm:-mx-4">
+              <div class="relative -mx-2 overflow-hidden rounded-[1.45rem] border border-[rgba(var(--page-accent-rgb),0.28)] bg-[var(--surface-soft)] sm:-mx-4">
                 <div
                   class="carousel-track flex transition-transform duration-500 ease-out"
                   data-carousel-track
@@ -187,7 +188,7 @@ const publications = [
                     <button
                       type="button"
                       aria-label={`Previous image for ${publication.title}`}
-                      class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
+                      class="accent-button grid h-10 w-10 place-items-center rounded-full border bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300"
                       data-carousel-prev
                     >
                       <span aria-hidden="true">‹</span>
@@ -195,7 +196,7 @@ const publications = [
                     <button
                       type="button"
                       aria-label={`Next image for ${publication.title}`}
-                      class="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300 hover:border-[var(--line-strong)] hover:bg-[var(--surface-strong)]"
+                      class="accent-button grid h-10 w-10 place-items-center rounded-full border bg-[rgba(8,10,12,0.72)] text-xl leading-none text-[var(--ink)] backdrop-blur-xl transition duration-300"
                       data-carousel-next
                     >
                       <span aria-hidden="true">›</span>
