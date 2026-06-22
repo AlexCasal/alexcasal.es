@@ -10,9 +10,23 @@ const projects = [
     title: "alexcasal.es",
     kind: "Personal website",
     summary:
-      "The site itself: an Astro-based personal website that tries to behave more like a studio surface than a standard portfolio.",
+      "The site itself: an Astro-based portfolio built to present projects, developer experience, and job-search signals without losing personality.",
+    problem:
+      "My old portfolio felt personal and creative, but recruiters needed a faster way to understand my role focus, stack, projects, and availability.",
+    built:
+      "I built a responsive Astro site with reusable page sections, project cards, focused metadata, and clear routes for projects, experience, contact, CV, GitHub, and LinkedIn.",
+    techStack: ["Astro", "JavaScript", "HTML", "CSS", "Tailwind"],
+    learned:
+      "I learned how to balance personality with conversion, structure content for hiring teams, and keep a static site maintainable as my profile changes.",
+    highlights: [
+      "Built with Astro",
+      "Responsive portfolio layout",
+      "Recruiter-focused content structure",
+      "Reusable components",
+      "Deployed as a personal website",
+    ],
     githubUrl: "https://github.com/AlexCasal/alexcasal.es",
-    liveUrl: null,
+    liveUrl: "https://alexcasal.es",
     language: "Astro",
     updatedLabel: "Apr 2026",
     status: "Ongoing",
@@ -22,7 +36,21 @@ const projects = [
     title: "Zara Challenge",
     kind: "Frontend challenge",
     summary:
-      "A retail front-end application originally built as part of a technical interview process for Massimo Dutti, focused on consuming a product API and creating a clean, scalable browsing experience.",
+      "Built a retail product browsing interface based on a technical challenge. The app consumes product data from an API, renders a clean responsive catalogue, and focuses on component structure, reusable UI, and maintainable React code.",
+    problem:
+      "The challenge was to create a product browsing experience that could present API data clearly, work across screen sizes, and stay easy to extend.",
+    built:
+      "I built a React catalogue interface with product fetching, responsive grid layouts, reusable UI components, and deployment on Vercel.",
+    techStack: ["React", "JavaScript", "CSS", "REST API", "Vercel"],
+    learned:
+      "I practiced organizing React components around real product data, handling API-driven UI, and polishing responsive catalogue states for a retail context.",
+    highlights: [
+      "Built with React",
+      "Consumed external product API",
+      "Responsive product grid",
+      "Component-based structure",
+      "Deployed on Vercel",
+    ],
     githubUrl: "https://github.com/AlexCasal/zara-challenge",
     liveUrl: "https://zara-challenge-rouge.vercel.app",
     language: "React",
@@ -34,7 +62,21 @@ const projects = [
     title: "HackUDC 2026",
     kind: "Event website",
     summary:
-      "The official site for HackUDC 2026. More public-facing, more information-heavy, and built with a stronger collaboration constraint.",
+      "The official site for HackUDC 2026, built as part of a web team for a 400+ participant hackathon with sponsors, schedules, and public event information.",
+    problem:
+      "The event needed a public website that could communicate key information clearly to participants, sponsors, and the wider technical community.",
+    built:
+      "I helped build and maintain the event website, structure content for different audiences, and collaborate remotely with organizers around timing, updates, and sponsor-facing information.",
+    techStack: ["Astro", "JavaScript", "HTML", "CSS", "GitHub"],
+    learned:
+      "I learned more about working in a distributed team, shipping public-facing event updates, and communicating technical work with non-technical constraints.",
+    highlights: [
+      "Built with Astro",
+      "Worked with an organizing team",
+      "Supported sponsor and event communication",
+      "Public-facing responsive website",
+      "Community and open-source context",
+    ],
     githubUrl: "https://github.com/AlexCasal/hackudc-2026",
     liveUrl: "https://hackudc.gpul.org/",
     language: "Astro",
@@ -47,6 +89,20 @@ const projects = [
     kind: "Earlier iteration",
     summary:
       "A previous personal website and a useful archive point for how the current direction grew out of something simpler and more conventional.",
+    problem:
+      "I needed an early portfolio presence while I was still clarifying how to present my work and development direction.",
+    built:
+      "I built a simpler static personal website to practice layout, navigation, content structure, and publishing a personal profile online.",
+    techStack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    learned:
+      "I learned what a basic portfolio needs, what felt too generic, and how that first version could evolve into a more focused developer site.",
+    highlights: [
+      "Static website",
+      "Responsive layout practice",
+      "Early portfolio iteration",
+      "HTML and CSS fundamentals",
+      "Archived for progression",
+    ],
     githubUrl: "https://github.com/AlexCasal/personal-web",
     liveUrl: null,
     language: "HTML",
@@ -58,7 +114,7 @@ const projects = [
 
 <BaseLayout
   title="Alex Casal | Projects"
-  description="Selected projects from Alex Casal: an edited set of websites, interface work, and public builds."
+  description="Selected projects from Alex Casal, junior full-stack software developer in Berlin: React, Astro, JavaScript, APIs, Node.js, and responsive web interfaces."
   page="projects"
 >
   <section
@@ -93,7 +149,8 @@ const projects = [
           <p>
             This page is a curated read of the work, not a mirror of everything
             that happens to live on GitHub. The point is selection, framing, and
-            enough context to make the shape of the practice legible.
+            enough context for hiring teams to understand what I built, how I
+            think, and what I learned.
           </p>
           <p></p>
           <dd class="mt-9">
@@ -127,7 +184,7 @@ const projects = [
           id="project-signals"
           class="mt-5 max-w-[16ch] font-display text-[clamp(2rem,4vw,3.6rem)] leading-[0.95] tracking-[-0.07em] text-[var(--ink)]"
         >
-          Here you will only see projects I consider finished.
+          Selected finished projects.
         </h2>
         <p
           class="mt-4 max-w-3xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8"

@@ -5,58 +5,52 @@ const routes = [
   {
     title: "Projects",
     href: "/projects",
-    text: "Selected work, case-study framing, and the more resolved side of the practice.",
+    text: "Selected work with problem, build, stack, and learning notes for hiring teams.",
     note: "Built work",
   },
   {
     title: "Experiences",
     href: "/experiences",
-    text: "Short post-style reflections about what I am building, learning, and seeing while working in tech.",
-    note: "Posts",
+    text: "Community work, events, teamwork, communication, and the situations that shaped how I work.",
+    note: "Experience",
   },
   {
     title: "Contact",
     href: "/contact",
-    text: "For collaborations, commissions, or conversations about web work with a stronger point of view.",
-    note: "Say hello",
+    text: "For developer roles, team conversations, interviews, and professional context.",
+    note: "Hiring",
   },
 ];
 
 const stackGroups = [
   {
-    title: "Frontend",
-    text: "The part of the stack where I feel most at home: interfaces, components, layouts, interaction, and the small details that make a product feel clear.",
-    tools: ["Astro", "React", "TypeScript", "JavaScript", "HTML", "CSS", "TailWind CSS"],
+    title: "Main stack",
+    text: "The tools I use most for building clear, responsive interfaces and portfolio-ready web applications.",
+    tools: ["React", "Astro", "JavaScript", "TypeScript", "HTML", "CSS", "Tailwind"],
   },
   {
-    title: "Backend",
-    text: "I build the server-side pieces needed to support real products: APIs, data flows, authentication, integrations, and simple services that stay understandable.",
-    tools: ["Node.js", "Express", "REST APIs", "PHP", "Laravel", "SQL"],
+    title: "Backend basics",
+    text: "The server-side fundamentals I use to understand how products work beyond the interface.",
+    tools: ["Node.js", "Express", "REST APIs", "SQL", "PHP", "Laravel"],
   },
   {
-    title: "Mobile & Web",
-    text: "I like building experiences that work across screens, from responsive websites to mobile-friendly interfaces and app-like flows.",
-    tools: ["Responsive UI", "Flutter", "Angular",],
+    title: "Tools",
+    text: "The practical tooling I use to build, version, deploy, and keep projects moving.",
+    tools: ["Git", "GitHub", "Docker", "Linux", "Vercel", "GitHub Actions"],
   },
   {
-    title: "Infra",
-    text: "I care about how projects run after the code is written: deployments, environments, containers, domains, and the practical operations around a site.",
-    tools: ["Docker", "Linux", "Vercel", "GitHub Pages"],
-  },
-  {
-    title: "Automation",
-    text: "I use scripts and tooling to remove repetitive work, connect systems, and make development workflows faster and less fragile.",
-    tools: ["GitHub Actions", "Shell", "npm scripts", "CI/CD", "Webhooks"],
-  },
-  {
-    title: "AI assisted",
-    text: "I use AI as part of my workflow to prototype faster, review ideas, automate repetitive tasks, and explore solutions before deciding what to build.",
-    tools: ["Prompting", "Code review", "Rapid prototyping", "Research", "Task automation"],
+    title: "Also explored",
+    text: "Areas I have touched through projects, experiments, community work, and AI-assisted workflows.",
+    tools: ["Angular", "Flutter", "AI-assisted workflows"],
   },
 ];
 ---
 
-<BaseLayout title="Alex Casal | About" page="about">
+<BaseLayout
+  title="Alex Casal - About"
+  description="About Alex Casal, a junior full-stack software developer based in Berlin, working with React, Astro, JavaScript, TypeScript, Node.js and SQL."
+  page="about"
+>
   <section
     class="page-hero relative overflow-hidden border-b border-[var(--line)] pb-16 lg:pb-20"
   >
@@ -80,21 +74,23 @@ const stackGroups = [
         <h1
           class="mt-6 max-w-[10ch] font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft"
         >
-          An 'about' page. Yes, apparently I needed one.
+          About me, but useful.
         </h1>
         <div
           class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9"
         >
           <p>
-            I’m Alex, a frontend developer from Spain, now building a new
-            chapter in Berlin. I care about making things that feel clear,
-            useful, and well considered.
+            I am a junior full-stack software developer based in Berlin. I
+            work mainly with React, Astro, JavaScript, TypeScript, Node.js and
+            SQL. I enjoy building clear interfaces, understanding how products
+            work end-to-end, and using AI-assisted workflows to prototype and
+            solve problems faster.
           </p>
 
           <p>
             This is less a biography than a small orientation. Part portfolio,
-            part working surface, a place that reflects how I think, what I’m
-            exploring, and how I approach the web.
+            part working surface, it is meant to feel closer to a working
+            surface than a traditional portfolio.
           </p>
         </div>
       </div>
@@ -117,32 +113,29 @@ const stackGroups = [
                 Base
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Originally from Spain, currently relocating to Berlin while
-                growing through independent projects and new opportunities.
+                Originally from Spain, now based in Berlin and open to junior
+                full-stack and software developer roles.
               </dd>
             </div>
             <div class="border-t border-[var(--line)] pt-5">
               <dt
                 class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)]"
               >
-                Curiosity
+                Focus
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Interested in the space where design, development, and
-                experimentation meet — especially when ideas can turn into
-                practical products.
+                Building clear interfaces, reusable components, responsive
+                layouts, and product features that are easy to understand.
               </dd>
             </div>
             <div class="border-t border-[var(--line)] pt-5">
               <dt
                 class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)]"
               >
-                Open Source
+                Languages
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Learning through open-source, studying how others build, and
-                increasingly using AI to automate tasks and make development
-                faster.
+                Spanish and English 
               </dd>
             </div>
           </dl>
@@ -150,6 +143,7 @@ const stackGroups = [
       </aside>
     </div>
   </section>
+
   <section aria-labelledby="a-bit-more" class="mt-20 pt-12 lg:mt-10 lg:pt-10">
     <div
       class="grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-14"
@@ -171,34 +165,62 @@ const stackGroups = [
         class="space-y-5 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8"
       >
         <p>
-          I enjoy learning, and building things to understand how they work.
-          Over time, that evolved into a strong interest in creating clean,
+          I enjoy learning and building things to understand how they work. Over
+          time, that evolved into a strong interest in creating clean,
           efficient, and intentional digital experiences.
         </p>
 
         <p>
-          I’m part of the GPUL community, where I’ve been surrounded by people
-          who genuinely enjoy technology, open source, and sharing knowledge.
-          I’ve also contributed to organizing HackUDC, an experience that
-          reinforced how much I enjoy collaborative environments and solving
-          problems with others.
+          I am part of the GPUL community, where I have been surrounded by
+          people who genuinely enjoy technology, open source, and sharing
+          knowledge. I have also contributed to organizing HackUDC, an
+          experience that reinforced how much I enjoy collaborative environments
+          and solving problems with others.
         </p>
 
         <p>
           I like finding efficient ways to solve problems, especially by
           combining good design, solid structure, and AI-assisted workflows. I
-          usually use AI to automate repetitive tasks, prototype ideas faster,
-          and focus more energy on the parts of development that require
-          creativity and decision making.
+          use AI to automate repetitive tasks, prototype ideas faster, and focus
+          more energy on the parts of development that require creativity and
+          decision making.
         </p>
 
         <p>
-          Right now, I’m focused on growing as a developer, building projects
-          that feel thoughtful and polished, and finding opportunities where I
-          can continue learning while contributing to meaningful products and
-          teams.
+          Right now, I am focused on growing as a developer, building projects
+          that feel thoughtful and polished, and finding a team where I can
+          continue learning while contributing to meaningful products.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section
+    aria-labelledby="why-berlin"
+    class="accent-divider mt-20 border-t pt-12 lg:mt-28 lg:pt-16"
+  >
+    <div
+      class="grid gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-14"
+    >
+      <div>
+        <p
+          class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent)]"
+        >
+          Berlin / next step
+        </p>
+        <h2
+          id="why-berlin"
+          class="mt-4 max-w-[10ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl"
+        >
+          What I am looking for.
+        </h2>
+      </div>
+      <p class="max-w-3xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+        I recently moved to Berlin to grow as a developer and join a
+        product-focused team. I am especially interested in startups, developer
+        tools, SaaS products, e-commerce, creative technology, and teams where I
+        can learn fast while contributing to real features.
+      </p>
     </div>
   </section>
 
@@ -223,8 +245,8 @@ const stackGroups = [
         </h2>
         <p class="mt-6 max-w-md text-base leading-7 text-[var(--muted)]">
           I like understanding the full path of a product: the interface, the
-          backend behind it, the infrastructure that runs it, and the automation
-          that keeps the work moving.
+          backend behind it, the tooling that runs it, and the workflow that
+          keeps the work moving.
         </p>
       </div>
 
@@ -260,19 +282,15 @@ const stackGroups = [
             href={route.href}
             class="accent-card group rounded-[2rem] border border-[var(--line)] p-6 sm:p-8"
           >
-            {" "}
             <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
-              {" "}
-              {route.note}{" "}
-            </p>{" "}
+              {route.note}
+            </p>
             <h3 class="mt-8 font-display text-4xl leading-[0.95] tracking-[-0.06em] text-[var(--ink)] sm:text-5xl">
-              {" "}
-              {route.title}{" "}
-            </h3>{" "}
+              {route.title}
+            </h3>
             <p class="mt-4 text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-              {" "}
-              {route.text}{" "}
-            </p>{" "}
+              {route.text}
+            </p>
           </a>
         ))
       }

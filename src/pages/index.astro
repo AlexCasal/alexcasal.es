@@ -5,28 +5,76 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Hello!!"
+  title="Alex Casal - Full-stack Developer in Berlin"
+  description="Portfolio of Alex Casal, junior full-stack software developer based in Berlin, working with React, Astro, JavaScript, Node.js and modern web technologies."
 >
   <Hero
-    title="I like finding efficient ways to solve problems."
-    intro="This homepage is a live page for projects, experiences, prototypes, and some new things that if I have time and I get bored I will implement. It is mean to feel closer to a working surface than a polished CV."
+    title="Full-stack Developer based in Berlin."
+    intro="I build clean, responsive web applications with React, Astro, JavaScript and modern web tooling. I enjoy creating interfaces that feel clear, useful and well structured, while understanding how the product works from frontend to backend. Currently open to junior developer roles in Berlin or remote."
     image="/profile_01.jpg"
     imageAlt="Portrait of Alex Casal"
     actions={[
-      { href: "/projects", label: "My projects", detail: "Details" },
-      { href: "/lab", label: "The lab", detail: "Work in progress" },
-      { href: "/experiences", label: "Experiences", detail: "Stories and lessons" },
+      { href: "/projects", label: "View projects", detail: "/projects" },
+      { href: "/docs/CV_Alex.pdf", label: "Download CV", detail: "PDF" },
+      { href: "/contact", label: "Contact me", detail: "/contact" },
+    ]}
+    meta={[
+      { label: "Location", value: "Berlin, Germany" },
+      { label: "Role focus", value: "Junior full-stack / software development" },
+      { label: "Availability", value: "Open to interviews" },
     ]}
   />
+
+  <section aria-labelledby="open-to-work" class="mt-12 lg:mt-16">
+    <div class="accent-panel rounded-[2rem] border border-[var(--line)] p-6 sm:p-8">
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-start">
+        <div>
+          <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]">
+            Open to work
+          </p>
+          <h2 id="open-to-work" class="mt-4 max-w-[11ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl">
+            Looking for a junior developer role.
+          </h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <p class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              Currently open to
+            </p>
+            <ul class="mt-4 grid gap-2 text-base leading-7 text-[var(--muted)]">
+              <li>Junior Full-stack Developer roles</li>
+              <li>Junior Software Developer roles</li>
+              <li>JavaScript / TypeScript web roles</li>
+              <li>Berlin hybrid, Berlin onsite, or remote EU</li>
+            </ul>
+          </div>
+          <dl class="grid gap-4">
+            <div>
+              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">Location</dt>
+              <dd class="mt-1 text-base leading-7 text-[var(--ink)]">Berlin, Germany</dd>
+            </div>
+            <div>
+              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">Languages</dt>
+              <dd class="mt-1 text-base leading-7 text-[var(--ink)]">Spanish and English</dd>
+            </div>
+            <div>
+              <dt class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">Availability</dt>
+              <dd class="mt-1 text-base leading-7 text-[var(--ink)]">Open to interviews</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section aria-labelledby="featured-projects" class="mt-20 lg:mt-28">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
       <div class="lg:sticky lg:top-32 lg:self-start">
         <p class="font-mono text-[0.9rem] uppercase tracking-[0.3em] text-[var(--accent)]">
-          some projects
+          selected projects
         </p>
         <h2 id="featured-projects" class="mt-4 max-w-[8ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          Here you can find some things 'finished' :)
+          Selected finished projects.
         </h2>
         <a
           href="/projects"
@@ -56,7 +104,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </h3>
             <div>
               <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                The site itself: an Astro-based personal website that tries to behave more like a studio surface than a standard portfolio.
+                The site itself: an Astro-based portfolio built to present projects, developer experience, and job-search signals without losing personality.
               </p>
               <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Astro</span>
@@ -85,7 +133,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </h3>
             <div>
               <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                A retail front-end application originally built as part of a technical interview process for Massimo Dutti, focused on consuming a product API and creating a clean, scalable browsing experience.
+                Built a retail product browsing interface based on a technical challenge, focused on API data, reusable React components, and responsive catalogue UI.
+              </p>
               <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">React</span>
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Shipped</span>
@@ -113,7 +162,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </h3>
             <div>
               <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                The official site for HackUDC 2026. More public-facing, more information-heavy, and built with a stronger collaboration constraint.
+                The official site for HackUDC 2026, built as part of a web team for a 400+ participant hackathon with sponsors, schedules, and public event information.
               </p>
               <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Astro</span>
@@ -130,29 +179,45 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   
 
   <section class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+      <div>
+        <p class="font-mono text-[0.9rem] uppercase tracking-[0.3em] text-[var(--accent)]">
+          Berlin / next step
+        </p>
+        <h2 class="mt-4 max-w-[12ch] font-display text-4xl leading-[0.94] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
+          What I am looking for now.
+        </h2>
+      </div>
+      <p class="max-w-3xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+        I recently moved to Berlin to grow as a developer and join a product-focused team. I am especially interested in startups, developer tools, SaaS products, e-commerce, creative technology, and teams where I can learn fast while contributing to real features.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-20 border-t border-[var(--line-strong)] pt-12 lg:mt-28 lg:pt-16">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-start">
       <div>
         <p class="font-mono text-[0.9rem] uppercase tracking-[0.3em] text-[var(--accent)]">
-          contact?
+          contact
         </p>
         <h2 class="mt-4 max-w-[11ch] font-display text-4xl leading-[0.94] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          Need a site, system, or experiment with a point of view?
+          Hiring junior developers in Berlin or remote?
         </h2>
       </div>
 
       <div class="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8">
         <p class="max-w-md text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-          For collaborations, commissions, or conversations about web work that should feel more intentional than standard product polish.
+          I am open to interviews for junior full-stack and software developer roles, especially on teams building real products with clear user value.
         </p>
         <a
           href="/contact"
           class="mt-6 inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-5 py-3 text-sm text-[#0b0d10] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
         >
-          Open contact
+          Contact me
           <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[#0b0d10]/65">/contact</span>
         </a>
         <p class="mt-6 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">
-          Response cadence / human 
+          Usually replies within 24-48 hours
         </p>
       </div>
     </div>

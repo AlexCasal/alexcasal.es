@@ -4,26 +4,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const contactChannels = [
   {
     title: "Email",
-    href: "mailto:alexcasaldaw@gmail.com",
-    note: "Best for collaborations and project briefs",
+    href: "mailto:alexcasaldaw@gmail.com?subject=Developer%20role%20opportunity",
+    note: "alexcasaldaw@gmail.com",
   },
   {
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/alexcasaldaw/",
-    note: "For professional context and intros",
+    note: "Professional profile, role context, and messages",
   },
   {
     title: "GitHub",
     href: "https://github.com/AlexCasal",
-    note: "Code, experiments, and open work",
+    note: "Code, projects, experiments, and public work",
+  },
+  {
+    title: "Download CV",
+    href: "/docs/CV_Alex.pdf",
+    note: "PDF CV for hiring processes",
   },
 ];
-
 ---
 
 <BaseLayout
-  title="Alex Casal | Contact"
-  description="Get in touch with Alex Casal for collaborations, commissions, and web projects with a clear editorial point of view."
+  title="Alex Casal - Contact"
+  description="Contact Alex Casal, junior full-stack software developer based in Berlin, open to interviews for developer roles."
 >
   <section class="relative overflow-hidden border-[var(--line)] pb-16 lg:pb-20">
     <div aria-hidden="true" class="absolute right-[8%] top-8 h-40 w-40 rounded-full bg-[var(--accent-soft)] blur-3xl"></div>
@@ -38,30 +42,42 @@ const contactChannels = [
         </div>
 
         <h1 class="mt-6 max-w-[10ch] font-display text-[clamp(3.8rem,10vw,8rem)] leading-[0.88] tracking-[-0.08em] text-[var(--ink)] text-shadow-soft">
-          Let us build something with intention.
+          Interested in working together?
         </h1>
 
         <div class="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-[var(--muted)] sm:text-[1.28rem] sm:leading-9">
           <p>
-            If you are planning a site, rethinking a digital presence, or exploring a more authored web format, this is the right place to start.
+            I am currently looking for a junior developer role in Berlin,
+            especially in full-stack teams building real products.
           </p>
           <p>
-            Share where you are, what you are trying to improve, and the timeline you have in mind. I can usually reply within a few days.
+            If you are hiring or think my profile could fit your team, feel free
+            to contact me. I usually reply within 24-48 hours.
           </p>
         </div>
 
-        <a
-          href="mailto:alexcasaldaw@gmail.com?subject=New%20project%20inquiry"
-          class="mt-10 inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-5 py-3 text-sm text-[#0b0d10] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
-        >
-          Start with email
-        </a>
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a
+            href="mailto:alexcasaldaw@gmail.com?subject=Developer%20role%20opportunity"
+            class="inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-5 py-3 text-sm text-[#0b0d10] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+          >
+            Email me
+          </a>
+          <a
+            href="/docs/CV_Alex.pdf"
+            download
+            class="accent-button inline-flex items-center gap-3 rounded-full border bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5"
+          >
+            Download CV
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">PDF</span>
+          </a>
+        </div>
       </div>
 
       <aside class="lg:pb-2">
         <div class="rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-6 sm:p-8">
           <p class="font-mono uppercase tracking-[0.28em] text-[var(--accent-cool)]">
-            Contact details
+            Hiring details
           </p>
 
           <dl class="mt-6 space-y-5">
@@ -70,16 +86,7 @@ const contactChannels = [
                 Availability
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Open for selected collaborations and scoped freelance work.
-              </dd>
-            </div>
-
-            <div class="border-t border-[var(--line)] pt-5">
-              <dt class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-                Typical response
-              </dt>
-              <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Usually within 2-4 business days.
+                Open to interviews for junior full-stack and software developer roles.
               </dd>
             </div>
 
@@ -88,7 +95,16 @@ const contactChannels = [
                 Location
               </dt>
               <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
-                Berlin, working remotely and asynchronously.
+                Berlin, Germany. Open to Berlin onsite, Berlin hybrid, or remote EU.
+              </dd>
+            </div>
+
+            <div class="border-t border-[var(--line)] pt-5">
+              <dt class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+                Response
+              </dt>
+              <dd class="mt-2 text-sm leading-6 text-[var(--ink)] sm:text-base">
+                I usually reply within 24-48 hours.
               </dd>
             </div>
           </dl>
@@ -104,29 +120,28 @@ const contactChannels = [
           Channels
         </p>
         <h2 id="channels" class="mt-4 max-w-[10ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
-          Pick the route that fits.
+          Easy ways to reach me.
         </h2>
       </div>
     </div>
 
-    <div class="mt-8 grid gap-4 lg:grid-cols-3">
+    <div class="mt-8 grid gap-4 lg:grid-cols-4">
       {contactChannels.map((channel) => (
         <a
           href={channel.href}
           target={channel.href.startsWith("http") ? "_blank" : undefined}
           rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
+          download={channel.href.endsWith(".pdf") ? true : undefined}
           class="group rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--line-strong)] sm:p-8"
         >
           <p class="font-mono text-[0.9rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
             {channel.title}
           </p>
-          <p class="mt-4 text-base leading-7  sm:text-lg sm:leading-8">
+          <p class="mt-4 text-base leading-7 sm:text-lg sm:leading-8">
             {channel.note}
           </p>
         </a>
       ))}
     </div>
   </section>
-
-  
 </BaseLayout>
