@@ -1,79 +1,122 @@
-# Alex Casal Lab
+# Alex Casal Portfolio
 
-Personal website, portfolio, and experimental lab for me. The site is built with Astro and is designed as a curated personal internet space: part portfolio, part writing surface, part place for experiments.
+[![Built with Astro](https://img.shields.io/badge/Astro-6.x-ff5d01?style=flat-square&logo=astro&logoColor=white)](https://astro.build/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Package manager: pnpm](https://img.shields.io/badge/package_manager-pnpm-f69220?style=flat-square&logo=pnpm&logoColor=white)](https://pnpm.io/)
 
-## Overview
+Personal portfolio for [alexcasal.es](https://alexcasal.es): a focused developer portfolio, project archive, and small creative lab built with Astro.
 
-This project contains the source code for `alexcasal.es`. It presents selected projects, personal background, lab experiments, experience publications, and contact information in one cohesive site.
+The site presents my profile as a junior full-stack software developer based in Berlin, with selected projects, experience, contact links, and experiments in one fast static website.
 
-The site is intentionally small and static. Most content lives directly in Astro pages and component props, which makes it easy to edit without introducing a CMS or extra data layer too early.
+## What This Site Does
+
+- Introduces my developer profile clearly for recruiters and hiring teams.
+- Highlights selected projects with problem, build details, stack, learnings, and links.
+- Shows my experience, background, tech stack, and availability.
+- Keeps a small lab area for ideas and experiments that grow over time.
+- Stays lightweight, static, and easy to maintain without a CMS.
 
 ## Tech Stack
 
-- [Astro](https://astro.build/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- TypeScript-friendly Astro components
-- Static assets served from `public/`
+| Area | Tools |
+| --- | --- |
+| Framework | Astro |
+| Styling | Tailwind CSS |
+| Language | JavaScript, TypeScript-friendly Astro components |
+| Package manager | pnpm |
+| Deployment | Static build ready for Vercel or similar platforms |
 
 ## Requirements
 
 - Node.js `>=22.12.0`
-- npm
+- pnpm `11.7.0`
+
+If pnpm is not installed, enable it through Corepack:
+
+```bash
+corepack enable
+```
 
 ## Getting Started
 
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Start the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Build the production site:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 Preview the production build locally:
 
 ```bash
-npm run preview
+pnpm preview
 ```
 
 ## Project Structure
 
 ```text
 .
-├── public/
-│   ├── experiences/        # Images used by experience publications
-│   ├── favicon.ico
-│   └── profile_01.jpg
-├── src/
-│   ├── components/         # Reusable Astro components
-│   ├── layouts/            # Shared page layout
-│   ├── pages/              # Site routes
-│   └── styles/             # Global Tailwind entry
-├── astro.config.mjs
-├── package.json
-└── README.md
+|-- public/
+|   |-- experiences/        # Images used by experience pages
+|   |-- favicon.ico
+|   `-- profile_01.jpg
+|-- src/
+|   |-- components/         # Reusable Astro components
+|   |-- layouts/            # Shared page layout
+|   |-- pages/              # Site routes
+|   `-- styles/             # Global Tailwind entry
+|-- astro.config.mjs
+|-- package.json
+|-- pnpm-lock.yaml
+|-- pnpm-workspace.yaml
+`-- README.md
 ```
 
-## Main Pages
+## Main Routes
 
-- `src/pages/index.astro` - homepage.
-- `src/pages/about.astro` - personal background and context.
-- `src/pages/projects.astro` - selected projects.
-- `src/pages/lab.astro` - experiments and unfinished ideas.
-- `src/pages/experiences.astro` - publication-style experience posts.
-- `src/pages/contact.astro` - contact page.
+| Route | Purpose |
+| --- | --- |
+| `/` | Homepage, hero, open-to-work section, featured content |
+| `/about` | Professional summary, background, stack, Berlin context |
+| `/projects` | Selected finished projects and case-study style details |
+| `/lab` | Experiments, notes, and ideas in progress |
+| `/experiences` | Experience posts and community involvement |
+| `/contact` | Email, LinkedIn, GitHub, CV, and hiring details |
 
+## Content Notes
+
+Most content currently lives directly inside Astro pages and component props. That keeps the project simple and quick to update while the portfolio evolves.
+
+When updating content, the most relevant files are:
+
+- `src/pages/index.astro`
+- `src/pages/about.astro`
+- `src/pages/projects.astro`
+- `src/pages/experiences.astro`
+- `src/pages/contact.astro`
+- `src/components/Navigation.astro`
+- `src/components/Footer.astro`
+
+## Useful Commands
+
+```bash
+pnpm dev       # Start local development
+pnpm build     # Build the static site
+pnpm preview   # Preview the production build
+pnpm astro     # Run Astro CLI commands
+```
 
 ## Status
 
-This site is active and evolving. Content, layout, and sections may change as the portfolio and lab grow.
+Active and evolving. The goal is to keep the site personal and creative while making it clear, useful, and easy to scan for recruiters and hiring teams.
