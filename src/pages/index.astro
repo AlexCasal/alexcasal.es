@@ -5,12 +5,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Alex Casal - Full-stack Developer in Berlin"
-  description="Portfolio of Alex Casal, junior full-stack software developer based in Berlin, working with React, Astro, JavaScript, Node.js and modern web technologies."
+  title="Alex Casal - Full-stack Developer and LeadQuiry Co-founder"
+  description="Portfolio of Alex Casal, full-stack developer in Berlin and co-founder of LeadQuiry, building web products with React, Next.js, Astro, TypeScript and modern web technologies."
 >
   <Hero
-    title="Full-stack Developer based in Berlin."
-    intro="I build clean, responsive web applications with React, Astro, JavaScript and modern web tooling. I enjoy creating interfaces that feel clear, useful and well structured, while understanding how the product works from frontend to backend. Currently open to junior developer roles in Berlin or remote."
+    title="Full-stack Developer and Co-founder based in Berlin."
+    intro="I build clean, responsive web applications and co-founded LeadQuiry, a SaaS product for finding and managing business leads. I enjoy turning product ideas into useful, well-structured experiences while working across frontend, backend, data, and the decisions that connect them."
     image="/profile_01.jpg"
     imageAlt="Portrait of Alex Casal"
     actions={[
@@ -20,10 +20,49 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     ]}
     meta={[
       { label: "Location", value: "Berlin, Germany" },
-      { label: "Role focus", value: "Junior full-stack / software development" },
+      { label: "Current focus", value: "Co-founder at LeadQuiry / full-stack development" },
       { label: "Availability", value: "Open to interviews" },
     ]}
   />
+
+  <section aria-labelledby="leadquiry" class="mt-12 lg:mt-16">
+    <div class="accent-panel overflow-hidden rounded-[2rem] border border-[var(--line)] p-6 sm:p-8 lg:p-10">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end">
+        <div>
+          <p class="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-cool)]">
+            Co-founder / Active product
+          </p>
+          <h2 id="leadquiry" class="mt-4 max-w-[9ch] font-display text-4xl leading-[0.95] tracking-[-0.07em] text-[var(--ink)] sm:text-5xl lg:text-6xl">
+            Building LeadQuiry.
+          </h2>
+        </div>
+
+        <div>
+          <p class="max-w-3xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+            LeadQuiry is a lead-generation SaaS that helps businesses find, organize, and export potential customers from one focused workflow. As co-founder, I work across product decisions, interface design, full-stack development, data persistence, and the systems behind a real subscription product.
+          </p>
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href="https://leadquiry.com"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center justify-between gap-4 rounded-full bg-[var(--accent)] px-5 py-3 text-sm text-[#0b0d10] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+            >
+              Visit LeadQuiry
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[#0b0d10]/65">Live</span>
+            </a>
+            <a
+              href="/projects#leadquiry"
+              class="accent-button inline-flex items-center justify-between gap-4 rounded-full border bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5"
+            >
+              Read the project case
+              <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">/projects</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section aria-labelledby="open-to-work" class="mt-12 lg:mt-16">
     <div class="accent-panel rounded-[2rem] border border-[var(--line)] p-6 sm:p-8">
@@ -87,7 +126,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <div class="border-t border-[var(--line-strong)]">
         <a
-          href="/projects#alexcasal-es"
+          href="/projects#leadquiry"
           class="group block rounded-[2rem] border-b border-[var(--line)] bg-[linear-gradient(135deg,rgba(216,255,86,0.1),transparent_45%)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:px-8"
         >
           <div class="flex items-center justify-between gap-5">
@@ -95,11 +134,40 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               01
             </span>
             <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-              Personal website
+              SaaS / Co-founder
             </span>
           </div>
           <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
             <h3 class="font-display text-[clamp(2.9rem,6vw,5.8rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
+              LeadQuiry
+            </h3>
+            <div>
+              <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+                A lead-generation SaaS for finding, organizing, and exporting potential customers, built around a focused workflow and a credit-based product model.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Next.js</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Active product</span>
+                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Co-founder</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="/projects#alexcasal.es"
+          class="group block border-b border-[var(--line)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:px-4"
+        >
+          <div class="flex items-center justify-between gap-5">
+            <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
+              02
+            </span>
+            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
+              Personal website
+            </span>
+          </div>
+          <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
+            <h3 class="font-display text-[clamp(2.2rem,4.4vw,4rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
               alexcasal.es
             </h3>
             <div>
@@ -121,7 +189,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         >
           <div class="flex items-center justify-between gap-5">
             <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
-              02
+              03
             </span>
             <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
               Frontend challenge
@@ -129,45 +197,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
             <h3 class="font-display text-[clamp(2.2rem,4.4vw,4rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
-              zara-challenge
+              Zara Challenge
             </h3>
             <div>
               <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                Built a retail product browsing interface based on a technical challenge, focused on API data, reusable React components, and responsive catalogue UI.
+                A retail product browsing interface based on a technical challenge, focused on API data, reusable React components, and responsive catalogue UI.
               </p>
               <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">React</span>
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Shipped</span>
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Mar 2026</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a
-          href="/projects#hackudc-2026"
-          class="group block border-b border-[var(--line)] py-8 transition duration-300 hover:border-[var(--line-strong)] lg:px-4"
-        >
-          <div class="flex items-center justify-between gap-5">
-            <span class="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--soft)] transition duration-300 group-hover:text-[var(--accent)]">
-              03
-            </span>
-            <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-              Event website
-            </span>
-          </div>
-          <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
-            <h3 class="font-display text-[clamp(2.2rem,4.4vw,4rem)] leading-[0.92] tracking-[-0.07em] text-[var(--ink)] transition duration-300 group-hover:text-[var(--accent-strong)]">
-              HackUDC 2026
-            </h3>
-            <div>
-              <p class="max-w-2xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                The official site for HackUDC 2026, built as part of a web team for a 400+ participant hackathon with sponsors, schedules, and public event information.
-              </p>
-              <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2">
-                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Astro</span>
-                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Collaboration</span>
-                <span class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[var(--soft)]">Jan 2026</span>
               </div>
             </div>
           </div>

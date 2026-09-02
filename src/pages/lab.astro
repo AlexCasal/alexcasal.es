@@ -16,11 +16,33 @@ const routes = [
 
 const labProjects = [
   {
+    name: "leadquiry-lab",
+    title: "LeadQuiry",
+    status: "Always evolving",
+    kind: "Live product lab",
+    summary:
+      "A real SaaS product that keeps changing as we refine how businesses discover, organize, and work with potential customers.",
+    description:
+      "This is the experimental side of LeadQuiry: the place where product decisions become new workflows, clearer interactions, and better ways to move from a search to a useful collection of leads.",
+    detail:
+      "Because the product is active, the lab never has a final version. Each iteration tests how the experience can become simpler without losing the depth a serious lead-generation tool needs.",
+    tags: ["Product", "Lead generation", "UX", "SaaS", "Active development"],
+    focus: [
+      { label: "Product", text: "Turning real prospecting needs into focused features." },
+      { label: "Flow", text: "Reducing friction between search, collection, and export." },
+      { label: "Business", text: "Balancing useful results with a sustainable product model." },
+    ],
+    action: {
+      href: "https://leadquiry.com",
+      label: "Visit LeadQuiry",
+      detail: "Live product",
+    },
+  },
+  {
     name: "devnotes-lab",
     title: "DevNotes Lab",
     status: "In progress",
     kind: "Developer notes",
-    githubUrl: "https://github.com/AlexCasal/devnotes-lab",
     summary:
       "A small developer notes lab for tutorials, experiments, and technical posts that I want to keep, share, or improve over time.",
     description:
@@ -28,6 +50,16 @@ const labProjects = [
     detail:
       "It is meant to collect setup guides, developer workflows, useful commands, small experiments, and notes about tools I use while building software.",
     tags: ["Astro", "TypeScript", "Markdown", "GitHub", "Developer Tools"],
+    focus: [
+      { label: "Notes", text: "Keeping useful technical discoveries easy to revisit." },
+      { label: "Workflow", text: "Turning repeated setup work into reusable guidance." },
+      { label: "Iteration", text: "Improving each entry as the tools and projects evolve." },
+    ],
+    action: {
+      href: "https://github.com/AlexCasal/devnotes-lab",
+      label: "GitHub",
+      detail: "Repo",
+    },
   },
 ];
 ---
@@ -145,16 +177,31 @@ const labProjects = [
               ))}
             </div>
 
+            {project.focus.length > 0 && (
+              <dl class="mt-7 grid gap-4 border-t border-[var(--line)] pt-6 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                {project.focus.map((item) => (
+                  <div>
+                    <dt class="font-mono text-[0.64rem] uppercase tracking-[0.22em] text-[var(--accent-cool)]">
+                      {item.label}
+                    </dt>
+                    <dd class="mt-2 text-sm leading-6 text-[var(--muted)]">
+                      {item.text}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+
             <div class="mt-8 flex flex-wrap gap-3 border-t border-[var(--line)] pt-5">
               <a
-                href={project.githubUrl}
+                href={project.action.href}
                 target="_blank"
                 rel="noreferrer"
                 class="accent-button inline-flex items-center gap-3 rounded-full border bg-[var(--surface-soft)] px-5 py-3 text-sm text-[var(--ink)] transition duration-300 hover:-translate-y-0.5"
               >
-                GitHub
+                {project.action.label}
                 <span class="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--soft)]">
-                  repo
+                  {project.action.detail}
                 </span>
               </a>
             </div>
